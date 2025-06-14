@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Untitled</title>
-  
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -25,8 +15,8 @@
       margin: 0; 
       padding: 0;
       width: 100%;
-      height: 100%;
-      overflow-x: hidden;
+      height: auto; /* Permitir altura automática */
+      overflow-x: hidden; /* Evitar el scroll horizontal */
     }
     body {
       font-family: 'Montserrat', sans-serif;
@@ -34,16 +24,12 @@
       background: #fefefe;
       color: #000;
       line-height: 1.2;
-      font-size: 0.7rem;
       text-align: center;
-      position: relative;
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16"><text x="0" y="12" font-size="14" fill="black" font-family="Arial, sans-serif">mad</text></svg>') 0 12, auto;
-      margin: 0;
-      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16"><text x="0" y="12" font-size="14" fill="black" font-family="Arial, sans-serif">mad</text></svg>') 0 12, auto; /* Cursor personalizado */
     }
     #categories-bar {
       position: fixed;
@@ -62,7 +48,7 @@
       user-select: none;
     }
     #categories-bar .name-label {
-      font-family: 'Special Elite', monospace, monospace;
+      font-family: 'Special Elite', monospace;
       font-weight: 600;
       font-size: 1rem;
       color: #000;
@@ -79,7 +65,7 @@
       margin-right: 24px;
     }
     #categories-bar button {
-      font-family: 'Special Elite', monospace, monospace;
+      font-family: 'Special Elite', monospace;
       font-size: 0.6rem;
       font-weight: 600;
       background: none;
@@ -102,80 +88,55 @@
     }
     .image-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr; /* Una columna para la imagen grande */
       gap: 0;
-      margin: 0; /* eliminado margen arriba, para no dejar espacio */
+      margin: 0; /* Eliminado margen arriba, para no dejar espacio */
       padding: 0;
       width: 100vw;
-      max-width: 100vw;
-    }
-    .image-grid > * {
-      margin: 0;
-      padding: 0;
     }
     .image-large {
-      grid-column: span 2;
-      width: 100vw;
-      height: 400px;
-      object-fit: cover;
+      width: 100%; /* Ocupa el 100% del ancho */
+      height: 700px; /* Altura fija para la imagen grande */
+      object-fit: cover; /* Mantiene la relación de aspecto */
       border-radius: 0 !important;
       display: block;
     }
     .image-small {
-      width: 100vw;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+      width: 100%; /* Ocupa el 50% del ancho */
+      height: 500px; /* Altura fija para las imágenes pequeñas */
+      object-fit: cover; /* Mantiene la relación de aspecto */
       border-radius: 0 !important;
       display: block;
     }
-    @media (max-width: 768px) {
-      #categories-bar {
-        padding: 6px 10px;
-        height: 36px;
-        max-width: 100vw;
-        width: 100vw;
-        margin-right: 12px;
-      }
-      #categories-bar .buttons-container {
-        gap: 16px;
-        justify-content: flex-end;
-      }
-      #categories-bar .name-label {
-        margin-left: 12px;
-      }
+    @media (min-width: 768px) {
       .image-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr; /* Dos columnas para las imágenes pequeñas */
       }
-      .image-large, .image-small {
-        height: auto;
-        aspect-ratio: auto;
+      .image-large {
+        grid-column: span 2; /* La imagen grande ocupa ambas columnas */
       }
     }
   </style>
 </head>
 <body>
   <div id="categories-bar">
-    <div class="name-label">Maximiliano Vásquez</div>
+    <div class="name-label"><a href="index.html" style="color: #000; text-decoration: none;">Maximiliano Vásquez</a></div>
     <div class="buttons-container">
       <button class="active" aria-current="true">Work</button>
       <button>Commercial</button>
-      <button>Info</button>
-      <button>Contact</button>
+      <button><a href="info.html" style="color: #000; text-decoration: none;">Info</a></button>
+      <button><a href="contact.html" style="color: #000; text-decoration: none;">Contact</a></button>
     </div>
   </div>
 
   <div class="image-grid" aria-label="Galería de imágenes">
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto1.jpg" alt="Imagen de fondo" class="image-large" /> <!-- Imagen grande -->
+    <img src="imagenes/foto2.jpg" alt="Imagen Commercial grande" class="image-small" />
     <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=600&q=80" alt="Imagen Work pequeña 1" class="image-small" />
-    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" alt="Imagen Work pequeña 2" class="image-small" />
-    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Imagen Commercial grande" class="image-large" />
+    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80" alt="Imagen Work grande" class="image-large" />
     <img src="https://images.unsplash.com/photo-1501769214405-8ba355e24791?auto=format&fit=crop&w=600&q=80" alt="Imagen Commercial pequeña 1" class="image-small" />
     <img src="https://images.unsplash.com/photo-1468070454955-c5b6932bd08d?auto=format&fit=crop&w=600&q=80" alt="Imagen Commercial pequeña 2" class="image-small" />
   </div>
 
-</body>
-</html>
-<!-- partial -->
-  
 </body>
 </html>
