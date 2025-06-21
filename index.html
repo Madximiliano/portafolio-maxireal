@@ -166,8 +166,8 @@
       max-width: 100%;
       height: auto;
     }
-  }
-  .hamburger {
+  /* Por defecto el botón hamburguesa está oculto */
+.hamburger {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
@@ -177,6 +177,7 @@
   z-index: 1100;
 }
 
+/* Estilo responsivo para mobile */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -191,17 +192,31 @@
     top: 40px;
     left: 0;
     padding: 10px 0;
+    z-index: 1000;
   }
 
   .buttons-container.show {
     display: flex;
   }
+}
+
+/* Estilo para pantallas grandes: menú siempre visible */
+@media (min-width: 769px) {
+  .buttons-container {
+    display: flex !important;
+    flex-direction: row;
+    background: transparent;
+    position: static;
+    padding: 0;
+  }
 
   .buttons-container button {
-    width: 100%;
-    text-align: left;
-    padding-left: 24px;
+    width: auto;
+    text-align: center;
+    padding-left: 0;
   }
+}
+
 }
 
 </style>
