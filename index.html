@@ -178,14 +178,14 @@
   z-index: 1100;
 }
 
-/* Mobile styles */
+/* MOBILE: solo se ve el botón y el menú está oculto */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
   .buttons-container {
-    display: none;
+    display: none !important;
     flex-direction: column;
     background-color: #111;
     width: 100%;
@@ -197,7 +197,7 @@
   }
 
   .buttons-container.show {
-    display: flex;
+    display: flex !important;
   }
 
   .buttons-container button {
@@ -206,6 +206,24 @@
     padding-left: 24px;
   }
 }
+
+/* DESKTOP: menú siempre visible */
+@media (min-width: 769px) {
+  .buttons-container {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+  }
+
+  .buttons-container button {
+    width: auto;
+    text-align: center;
+    padding-left: 0;
+  }
+}
+    
 </style>
 
 </head>
@@ -215,10 +233,10 @@
     <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
   </div>
 
-  <!-- Botón hamburguesa visible solo en mobile -->
+  <!-- Botón hamburguesa -->
   <button class="hamburger" id="hamburgerBtn">☰</button>
 
-  <!-- Contenedor de botones que ya tenías -->
+  <!-- Tu menú (se despliega solo en mobile si se hace clic) -->
   <div class="buttons-container" id="mobileMenu">
     <button><a href="work.html" style="color: #ffffff; text-decoration: none;">work</a></button>
     <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
@@ -258,7 +276,7 @@
     mobileMenu.classList.toggle("show");
   });
 
-  // Para asegurarse que en desktop esté siempre visible
+  // Oculta menú si cambia a escritorio
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
       mobileMenu.classList.remove("show");
