@@ -167,18 +167,61 @@
       height: auto;
     }
   }
+  .hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .buttons-container {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 10px 0;
+  }
+
+  .buttons-container.show {
+    display: flex;
+  }
+
+  .buttons-container button {
+    width: 100%;
+    text-align: left;
+    padding-left: 24px;
+  }
+}
+
 </style>
 
 </head>
 <body>
-  <div id="categories-bar">
-    <div class="name-label"><a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a></div>
-    <div class="buttons-container">
-      <button><a href="work.html" style="color: #fffff; text-decoration: none;">work</a></work>
-      <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></Commercial>
-      <button><a href="info.html" style="color: #ffffff; text-decoration: none;">Info</a></button>
-      <button><a href="follow.html" style="color: #ffffff; text-decoration: none;">follow</a></button>
-    </div>
+<div id="categories-bar">
+  <div class="name-label">
+    <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
+  </div>
+
+  <button class="hamburger" id="hamburgerBtn">☰</button>
+
+  <div class="buttons-container" id="mobileMenu">
+    <button><a href="work.html" style="color: #ffffff; text-decoration: none;">work</a></button>
+    <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
+    <button><a href="info.html" style="color: #ffffff; text-decoration: none;">Info</a></button>
+    <button><a href="follow.html" style="color: #ffffff; text-decoration: none;">follow</a></button>
+  </div>
+</div>
   </div>
 
   <div class="image-grid" aria-label="Galería de imágenes">
@@ -204,6 +247,13 @@
     <img src="imagenes/foto20.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
     <img src="imagenes/foto21.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
   </div>
+<script>
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
+  hamburgerBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
+</script>
 </body>
 </html>
