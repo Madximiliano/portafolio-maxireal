@@ -278,7 +278,6 @@
     mobileMenu.classList.toggle("show");
   });
 
-  // Para evitar que el menú se quede visible al agrandar la pantalla
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
       mobileMenu.classList.remove("show");
