@@ -180,8 +180,12 @@
 
 /* MOBILE: solo se ve el botón y el menú está oculto */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
+  #categories-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+    height: auto;
+    gap: 8px;
   }
 
   .buttons-container {
@@ -205,6 +209,17 @@
     text-align: left;
     padding-left: 24px;
   }
+
+  .name-label {
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
 }
 
 /* DESKTOP: menú siempre visible */
@@ -223,20 +238,26 @@
     padding-left: 0;
   }
 }
+    /* Agrupa nombre y hamburguesa en una línea */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
     
 </style>
 
 </head>
 <body>
 <div id="categories-bar">
-  <div class="name-label">
-    <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
+  <div class="top-bar">
+    <div class="name-label">
+      <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn">☰</button>
   </div>
 
-  <!-- Botón hamburguesa -->
-  <button class="hamburger" id="hamburgerBtn">☰</button>
-
-  <!-- Tu menú (se despliega solo en mobile si se hace clic) -->
   <div class="buttons-container" id="mobileMenu">
     <button><a href="work.html" style="color: #ffffff; text-decoration: none;">work</a></button>
     <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
