@@ -190,7 +190,7 @@
   }
 }
 
-/* ===== MENÚ MOBILE (oculto por defecto, visible con .show) ===== */
+/* ===== MENÚ MOBILE ===== */
 @media (max-width: 768px) {
   #categories-bar {
     flex-direction: column;
@@ -232,6 +232,30 @@
     z-index: 1100;
   }
 }
+
+/* ===== MENÚ DESKTOP ===== */
+@media (min-width: 769px) {
+  .buttons-container {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    margin-right: 24px;
+    gap: 24px;
+  }
+
+  .buttons-container button {
+    width: auto;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .hamburger {
+    display: none !important; /* 👈 AHORA sí se ocultará correctamente */
+  }
+}
+
 
 /* DESKTOP: menú siempre visible */
 @media (min-width: 769px) {
