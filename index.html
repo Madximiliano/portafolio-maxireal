@@ -3,129 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio - Mobile Menu 💅</title>
+  <title>Portafolio - Sin espacio con cursor personalizado</title>
+  <!-- Fuente Montserrat y Special Elite -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: auto;
-      overflow-x: hidden;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      background: #fefefe;
-      color: #ffffff;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16"><text x="0" y="12" font-size="14" fill="black" font-family="Arial, sans-serif">mad</text></svg>') 0 12, auto;
-    }
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
-    /* ---- BARRA SUPERIOR ---- */
-    #categories-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: transparent;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 12px;
-      z-index: 1000;
-      height: 40px;
-      width: 100vw;
-    }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+  }
 
-    .name-label {
-      font-family: 'Special Elite', monospace;
-      font-weight: 600;
-      font-size: 1rem;
-      color: #ffffff;
-      margin-left: 24px;
-    }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    background: #fefefe;
+    color: #ffffff;
+    line-height: 1.2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16"><text x="0" y="12" font-size="14" fill="black" font-family="Arial, sans-serif">mad</text></svg>') 0 12, auto;
+  }
 
-    .buttons-container {
-      display: flex;
-      gap: 24px;
-      margin-right: 24px;
-    }
+  #categories-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    z-index: 1000;
+    height: 40px;
+    width: 100vw;
+    max-width: 100vw;
+    user-select: none;
+  }
 
-    .buttons-container a {
-      font-family: 'Special Elite', monospace;
-      font-size: 0.6rem;
-      font-weight: 600;
-      background: none;
-      border: none;
-      color: #ffffff;
-      cursor: pointer;
-      padding: 8px 16px;
-      border-bottom: 2px solid transparent;
-      text-decoration: none;
-      transition: border-color 0.3s ease;
-    }
+  #categories-bar .name-label {
+    font-family: 'Special Elite', monospace;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    white-space: nowrap;
+    text-align: left;
+    flex-shrink: 0;
+    margin-left: 24px;
+  }
 
-    .buttons-container a:hover {
-      border-color: #000;
-    }
+  #categories-bar .buttons-container {
+    display: flex;
+    gap: 24px;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 24px;
+    flex-wrap: wrap;
+  }
 
-    /* ---- IMÁGENES ---- */
+  #categories-bar button {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    text-align: center;
+  }
+
+  #categories-bar button:hover,
+  #categories-bar button:focus {
+    border-color: #000;
+    outline: none;
+  }
+
+  #categories-bar button.active {
+    border-color: #000;
+    font-weight: 700;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+  }
+
+  .image-large {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    border-radius: 0 !important;
+    display: block;
+  }
+
+  .image-small {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0 !important;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
     .image-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      width: 100vw;
-      margin-top: 60px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .image-large {
+      grid-column: span 2;
+    }
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    #categories-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 12px 16px;
+      height: auto;
+      gap: 8px;
+    }
+
+    #categories-bar .buttons-container {
+      justify-content: center;
+      margin-right: 0;
+      gap: 12px;
+    }
+
+    #categories-bar .name-label {
+      margin-left: 0;
+      font-size: 0.9rem;
     }
 
     .image-large {
-      width: 100%;
-      height: 700px;
-      object-fit: cover;
+      height: 45vh;
     }
 
     .image-small {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
+      height: 30vh;
     }
 
-    @media (min-width: 768px) {
-      .image-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .image-large {
-        grid-column: span 2;
-      }
+    h1, h2, h3 {
+      font-size: 1.3rem;
     }
 
-    /* ---- HAMBURGUESA ---- */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      width: 30px;
-      height: 24px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      margin-right: 24px;
-      z-index: 1101;
-    }
+    img {
+      max-width: 100%;
+      height: auto;
+}
 
-    .hamburger span {
-      height: 3px;
-      background: white;
-      width: 100%;
-      display: block;
-    }
+    /* Botón hamburguesa oculto por defecto */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
 
-    /* ---- MENÚ DESLIZANTE MOBILE ---- */
-    #mobile-m
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .buttons-container {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .buttons-container.show {
+    display: flex;
+  }
+
+  .buttons-container button {
+    width: 100%;
+    text-align: left;
+    padding-left: 24px;
+  }
+}
+</style>
+
+</head>
+<body>
+<div id="categories-bar">
+  <div class="name-label">
+    <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
+  </div>
+
+  <!-- Botón hamburguesa visible solo en mobile -->
+  <button class="hamburger" id="hamburgerBtn">☰</button>
+
+  <!-- Contenedor de botones que ya tenías -->
+  <div class="buttons-container" id="mobileMenu">
+    <button><a href="work.html" style="color: #ffffff; text-decoration: none;">work</a></button>
+    <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
+    <button><a href="info.html" style="color: #ffffff; text-decoration: none;">Info</a></button>
+    <button><a href="follow.html" style="color: #ffffff; text-decoration: none;">follow</a></button>
+  </div>
+</div>
+
+  <div class="image-grid" aria-label="Galería de imágenes">
+    <img src="imagenes/foto1.jpg" alt="Imagen de fondo" class="image-large" /> <!-- Imagen grande -->
+    <img src="imagenes/foto2.jpg" alt="Imagen Commercial grande" class="image-small" />
+    <img src="imagenes/foto3.jpg" alt="Imagen Work pequeña 1" class="image-small" />
+    <img src="imagenes/foto4.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto5.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto6.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto7.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto8.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto9.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto10.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto11.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto12.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto13.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto14.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto15.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto16.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto17.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto18.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto19.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto20.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto21.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+  </div>
+<script>
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  hamburgerBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
+
+  // Para asegurarse que en desktop esté siempre visible
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      mobileMenu.classList.remove("show");
+    }
+  });
+</script>
+</body>
+</html>
