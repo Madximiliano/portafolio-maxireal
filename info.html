@@ -204,6 +204,69 @@
       p {
         text-align: center;
       }
+      /* Agrupa nombre y hamburguesa */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===== MENÚ MOBILE ===== */
+@media (max-width: 768px) {
+  .buttons-container {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .buttons-container.show {
+    display: flex;
+  }
+
+  .buttons-container button {
+    width: 100%;
+    text-align: left;
+    padding-left: 24px;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+  }
+}
+
+/* ===== MENÚ DESKTOP ===== */
+@media (min-width: 769px) {
+  .buttons-container {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    gap: 24px;
+    margin-right: 24px;
+  }
+
+  .buttons-container button {
+    width: auto;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
     }
   </style>
 </head>
