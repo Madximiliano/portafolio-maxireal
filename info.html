@@ -215,9 +215,9 @@
 /* ===== MENÚ MOBILE ===== */
 @media (max-width: 768px) {
   .buttons-container {
-    display: none;
+    display: none !important;
     flex-direction: column;
-    background-color: #fff;
+    background-color: #fff; /* o el color que quieras */
     width: 100%;
     position: absolute;
     top: 40px;
@@ -227,7 +227,7 @@
   }
 
   .buttons-container.show {
-    display: flex;
+    display: flex !important;
   }
 
   .buttons-container button {
@@ -237,14 +237,39 @@
   }
 
   .hamburger {
-    display: block;
+    display: block !important;
     font-size: 2rem;
     background: none;
-    color: #000;
+    color: #000; /* o blanco según fondo */
     border: none;
     cursor: pointer;
     z-index: 1100;
   }
+}
+
+/* ===== MENÚ DESKTOP ===== */
+@media (min-width: 769px) {
+  .buttons-container {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    margin-right: 24px;
+    gap: 24px;
+  }
+
+  .buttons-container button {
+    width: auto;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .hamburger {
+    display: none !important;
+  }
+}
+
 }
 
 /* ===== MENÚ DESKTOP ===== */
