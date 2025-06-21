@@ -166,6 +166,46 @@
       max-width: 100%;
       height: auto;
 }
+
+    /* Botón hamburguesa oculto por defecto */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .buttons-container {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .buttons-container.show {
+    display: flex;
+  }
+
+  .buttons-container button {
+    width: 100%;
+    text-align: left;
+    padding-left: 24px;
+  }
+}
 </style>
 
 </head>
@@ -175,8 +215,10 @@
     <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
   </div>
 
+  <!-- Botón hamburguesa visible solo en mobile -->
   <button class="hamburger" id="hamburgerBtn">☰</button>
 
+  <!-- Contenedor de botones que ya tenías -->
   <div class="buttons-container" id="mobileMenu">
     <button><a href="work.html" style="color: #ffffff; text-decoration: none;">work</a></button>
     <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
@@ -184,7 +226,6 @@
     <button><a href="follow.html" style="color: #ffffff; text-decoration: none;">follow</a></button>
   </div>
 </div>
-  </div>
 
   <div class="image-grid" aria-label="Galería de imágenes">
     <img src="imagenes/foto1.jpg" alt="Imagen de fondo" class="image-large" /> <!-- Imagen grande -->
@@ -217,6 +258,7 @@
     mobileMenu.classList.toggle("show");
   });
 
+  // Para asegurarse que en desktop esté siempre visible
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
       mobileMenu.classList.remove("show");
