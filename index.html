@@ -166,6 +166,7 @@
       max-width: 100%;
       height: auto;
     }
+
 /* ===== MENÚ DESKTOP (oculta el botón .hamburger) ===== */
 @media (min-width: 769px) {
   .buttons-container {
@@ -185,10 +186,9 @@
   }
 
   .hamburger {
-    display: none !important; /* ✅ Esto oculta el punto en desktop */
+    display: none !important; /* ✅ Oculta correctamente el botón en desktop */
   }
 }
-
 
 /* ===== MENÚ MOBILE (oculto por defecto, visible con .show) ===== */
 @media (max-width: 768px) {
