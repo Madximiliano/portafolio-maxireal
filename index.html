@@ -86,4 +86,176 @@
     }
 
     .buttons-container button.active {
-      border-color: #000
+      border-color: #000;
+      font-weight: 700;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+    }
+
+    .image-large {
+      width: 100%;
+      height: 700px;
+      object-fit: cover;
+      border-radius: 0 !important;
+      display: block;
+    }
+
+    .image-small {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 0 !important;
+      display: block;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+      display: none;
+    }
+
+    /* ======= MOBILE ======= */
+    @media (max-width: 768px) {
+      #categories-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 16px;
+        gap: 8px;
+      }
+
+      .name-label {
+        margin-left: 0;
+        font-size: 0.9rem;
+      }
+
+      .buttons-container {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        width: 100%;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 1000;
+      }
+
+      .buttons-container.show {
+        display: flex;
+      }
+
+      .buttons-container button {
+        width: 100%;
+        text-align: left;
+        padding-left: 24px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .image-large {
+        height: 45vh;
+      }
+
+      .image-small {
+        height: 30vh;
+      }
+
+      h1, h2, h3 {
+        font-size: 1.3rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    /* ======= DESKTOP ======= */
+    @media (min-width: 769px) {
+      .buttons-container {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        padding: 0;
+        margin-right: 24px;
+        gap: 24px;
+      }
+
+      .buttons-container button {
+        width: auto;
+        text-align: center;
+        padding-left: 0;
+      }
+
+      .hamburger {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="categories-bar">
+    <div class="top-bar">
+      <div class="name-label">
+        <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
+      </div>
+      <button class="hamburger" id="hamburgerBtn">•</button>
+    </div>
+
+    <div class="buttons-container" id="mobileMenu">
+      <button><a href="work.html" style="color: #ffffff; text-decoration: none;">work</a></button>
+      <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
+      <button><a href="info.html" style="color: #ffffff; text-decoration: none;">Info</a></button>
+      <button><a href="follow.html" style="color: #ffffff; text-decoration: none;">follow</a></button>
+    </div>
+  </div>
+
+  <div class="image-grid" aria-label="Galería de imágenes">
+    <!-- Aquí irían las imágenes -->
+  </div>
+
+  <script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    hamburgerBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("show");
+      hamburgerBtn.textContent = mobileMenu.classList.contains("show") ? "×" : "•";
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        mobileMenu.classList.remove("show");
+        hamburgerBtn.style.display = "none";
+      } else {
+        hamburgerBtn.style.display = "block";
+        hamburgerBtn.textContent = "•";
+      }
+    });
+
+    // Forzar visibilidad inicial correcta al cargar
+    window.dispatchEvent(new Event("resize"));
+  </script>
+</body>
+</html>
