@@ -165,72 +165,11 @@
     img {
       max-width: 100%;
       height: auto;
-/* === MENÚ HAMBURGUESA MOBILE === */
-.mobile-nav {
-  display: none;
-}
-
-/* Estilos visibles solo en pantallas pequeñas */
-@media (max-width: 768px) {
-  .mobile-nav {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1001;
-    background: #111;
-  }
-
-  .hamburger {
-    font-size: 2rem;
-    background: none;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-  }
-
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    background: #111;
-    width: 100%;
-  }
-
-  .mobile-menu a {
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-top: 1px solid #333;
-    font-family: 'Special Elite', monospace;
-    font-size: 0.9rem;
-  }
-
-  .mobile-menu a:hover {
-    background: #222;
-  }
-
-  .mobile-menu.show {
-    display: flex;
-  }
 }
 </style>
 
 </head>
 <body>
-  <nav class="mobile-nav">
-  <button class="hamburger" id="hamburgerBtn">☰</button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Inicio</a>
-    <a href="work.html">Work</a>
-    <a href="commercial.html">Commercial</a>
-    <a href="info.html">Info</a>
-    <a href="follow.html">Follow</a>
-  </div>
-</nav>
 <div id="categories-bar">
   <div class="name-label">
     <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
