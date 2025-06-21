@@ -352,5 +352,19 @@
       document.querySelector('.contact-info p').innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
     }
   </script>
+  <script>
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  hamburgerBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      mobileMenu.classList.remove("show");
+    }
+  });
+</script>
 </body>
 </html>
