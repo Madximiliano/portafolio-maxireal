@@ -194,14 +194,14 @@
       @media (max-width: 768px) {
         #categories-bar {
           flex-direction: column;
-          align-items: right;
+          align-items: flex-start;
           padding: 12px 16px;
           height: auto;
           gap: 8px;
         }
 
         .buttons-container {
-          display: none !important;
+          display: none;
           flex-direction: column;
           background-color: transparent;
           width: 100%;
@@ -213,7 +213,7 @@
         }
 
         .buttons-container.show {
-          display: flex !important;
+          display: flex;
         }
 
         .buttons-container button {
@@ -223,7 +223,7 @@
         }
 
         .hamburger {
-          display: block !important;
+          display: block;
           font-size: 4rem;
           background: transparent;
           color: white;
