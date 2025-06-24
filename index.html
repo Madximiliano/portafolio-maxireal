@@ -168,22 +168,27 @@
     }
 
 /* ===== MENÚ DESKTOP (oculta el botón .hamburger) ===== */
-@media (min-width: 769px) {
+@media (max-width: 768px) {
   .buttons-container {
-    display: flex !important;
-    position: static;
-    flex-direction: row;
-    background: transparent;
-    padding: 0;
-    margin-right: 24px;
-    gap: 24px;
+    display: none !important;
+    flex-direction: column;
+    background-color: transparent;
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1000;
+    align-items: flex-end; /* ← ALINEA TODO A LA DERECHA */
   }
 
   .buttons-container button {
-    width: auto;
-    text-align: center;
-    padding-left: 0;
+    width: 100%;
+    text-align: right; /* ← TEXTO A LA DERECHA */
+    padding-right: 24px; /* ← ESPACIADO ELEGANTE A LA DERECHA */
   }
+}
+
 
   .hamburger {
     display: none !important; /* ✅ Oculta correctamente el botón en desktop */
