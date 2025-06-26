@@ -4,18 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portafolio - Sin espacio con cursor personalizado</title>
-
-  <!-- Nueva fuente personalizada -->
+  <!-- Fuente Montserrat y Special Elite -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet" />
   <style>
-    @font-face {
-      font-family: 'NeueHaasDisplay';
-      src: url('fonts/NeueHaasDisplayMediu.ttf') format('truetype');
-      letter-spacing: 0.05em; /* 👈 nuevo */
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -29,8 +20,8 @@
     }
 
     body {
-      font-family: 'NeueHaasDisplay', sans-serif;
-      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 200;
       background: #fefefe;
       color: #ffffff;
       line-height: 1.2;
@@ -60,7 +51,7 @@
     }
 
     #categories-bar .name-label {
-      font-family: 'NeueHaasDisplay', sans-serif;
+      font-family: 'Special Elite', monospace;
       font-weight: 600;
       font-size: 1rem;
       color: #ffffff;
@@ -80,7 +71,7 @@
     }
 
     #categories-bar button {
-      font-family: 'NeueHaasDisplay', sans-serif;
+      font-family: 'Special Elite', monospace;
       font-size: 0.6rem;
       font-weight: 600;
       background: none;
@@ -138,6 +129,7 @@
       }
     }
 
+    /* MOBILE RESPONSIVE */
     @media (max-width: 768px) {
       #categories-bar {
         flex-direction: column;
@@ -158,7 +150,11 @@
         font-size: 0.5rem;
       }
 
-      .image-large, .image-small {
+      .image-large {
+        height: 100%;
+      }
+
+      .image-small {
         height: 100%;
       }
 
@@ -171,76 +167,128 @@
         height: auto;
       }
 
-      .buttons-container {
-        display: none !important;
-        flex-direction: column;
-        background-color: transparent;
+      /* ===== MENÚ DESKTOP (oculta el botón .hamburger) ===== */
+      @media (min-width: 769px) {
+        .buttons-container {
+          display: flex !important;
+          position: static;
+          flex-direction: row;
+          background: transparent;
+          padding: 0;
+          margin-right: 24px;
+          gap: 24px;
+        }
+
+        .buttons-container button {
+          width: auto;
+          text-align: center;
+          padding-left: 0;
+        }
+
+        .hamburger {
+          display: none !important; /* ✅ Oculta correctamente el botón en desktop */
+        }
+      }
+
+      /* ===== MENÚ MOBILE ===== */
+      @media (max-width: 768px) {
+        #categories-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 12px 16px;
+          height: auto;
+          gap: 8px;
+        }
+
+        .buttons-container {
+          display: none !important;
+          flex-direction: column;
+          background-color: transparent;
+          width: 100%;
+          position: absolute;
+          top: 40px;
+          left: 0;
+          padding: 10px 0;
+          z-index: 1000;
+        }
+
+        .buttons-container.show {
+          display: flex !important;
+        }
+
+        .buttons-container button {
+          width: 100%;
+          text-align: left;
+          padding-left: 24px;
+        }
+
+        .hamburger {
+          display: block !important;
+          font-size: 4rem;
+          background: transparent;
+          color: white;
+          border: none;
+          cursor: pointer;
+          z-index: 1100;
+        }
+      }
+
+      /* ===== MENÚ DESKTOP ===== */
+      @media (min-width: 769px) {
+        .buttons-container {
+          display: flex !important;
+          position: static;
+          flex-direction: row;
+          background: transparent;
+          padding: 0;
+          margin-right: 24px;
+          gap: 24px;
+        }
+
+        .buttons-container button {
+          width: auto;
+          text-align: center;
+          padding-left: 0;
+        }
+
+        .hamburger {
+          display: none !important; /* 👈 AHORA sí se ocultará correctamente */
+        }
+      }
+
+      /* DESKTOP: menú siempre visible */
+      @media (min-width: 769px) {
+        .buttons-container {
+          display: flex !important;
+          position: static;
+          flex-direction: row;
+          background: transparent;
+          padding: 0;
+        }
+
+        .buttons-container button {
+          width: auto;
+          text-align: center;
+          padding-left: 0;
+        }
+      }
+
+      /* Agrupa nombre y hamburguesa en una línea */
+      .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        position: absolute;
-        top: 40px;
-        left: 0;
-        padding: 10px 0;
-        z-index: 1000;
       }
-
-      .buttons-container.show {
-        display: flex !important;
-      }
-
-      .buttons-container button {
-        width: 100%;
-        text-align: left;
-        padding-left: 24px;
-      }
-
-      .hamburger {
-        display: block !important;
-        font-size: 4rem;
-        background: transparent;
-        color: white;
-        border: none;
-        cursor: pointer;
-        z-index: 1100;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .buttons-container {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        background: transparent;
-        padding: 0;
-        margin-right: 24px;
-        gap: 24px;
-      }
-
-      .buttons-container button {
-        width: auto;
-        text-align: center;
-        padding-left: 0;
-      }
-
-      .hamburger {
-        display: none !important;
-      }
-    }
-
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
   </style>
 </head>
 <body>
   <div id="categories-bar">
     <div class="top-bar">
       <div class="name-label">
-        <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
+        <a href="index.html" style="color: #ffffff; text-decoration: none;">maximiliano vásquez</a>
       </div>
-      <button class="hamburger" id="hamburgerBtn">●!</button>
+      <button class="hamburger" id="hamburgerBtn">●</button>
     </div>
 
     <div class="buttons-container" id="mobileMenu">
@@ -283,6 +331,7 @@
       mobileMenu.classList.toggle("show");
     });
 
+    // Oculta menú si cambia a escritorio
     window.addEventListener("resize", () => {
       if (window.innerWidth > 768) {
         mobileMenu.classList.remove("show");
