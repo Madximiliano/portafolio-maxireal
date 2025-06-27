@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Información - Maximiliano Vásquez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Special+Elite&display=swap" rel="stylesheet" />
   <style>
     @font-face {
       font-family: 'NeueHaasDisplay';
@@ -34,6 +34,7 @@
       justify-content: center;
       position: relative;
     }
+
     a,
     #categories-bar .name-label,
     #categories-bar button,
@@ -42,6 +43,7 @@
       text-decoration: none;
       font-family: 'NeueHaasDisplay', sans-serif !important;
     }
+
     #categories-bar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -56,6 +58,7 @@
       max-width: 100vw;
       user-select: none;
     }
+
     #categories-bar .name-label {
       font-family: 'NeueHaasDisplay', sans-serif !important;
       font-weight: 400;
@@ -65,6 +68,7 @@
       flex-shrink: 0;
       margin-left: 24px;
     }
+
     #categories-bar .buttons-container {
       display: flex;
       gap: 24px;
@@ -72,6 +76,7 @@
       flex: 1;
       margin-right: 24px;
     }
+
     #categories-bar button {
       font-family: 'NeueHaasDisplay', sans-serif !important;
       font-size: 0.6rem;
@@ -84,6 +89,7 @@
       transition: border-color 0.3s ease;
       text-align: center;
     }
+
     #categories-bar button:hover,
     #categories-bar button:focus,
     #categories-bar button.active {
@@ -91,6 +97,7 @@
       outline: none;
       font-weight: 400;
     }
+
     #language-toggle {
       position: fixed;
       bottom: 20px;
@@ -111,7 +118,11 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.12);
       transition: box-shadow 0.3s ease;
     }
-    #language-toggle:hover { box-shadow: 0 6px 14px rgba(0,0,0,0.2); }
+
+    #language-toggle:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
     #language-toggle > div {
       flex: 1;
       display: flex;
@@ -119,17 +130,32 @@
       justify-content: center;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     #language-toggle .es, #language-toggle .en {
       color: #666;
       background-color: #111;
     }
+
     #language-toggle.es-active .es,
     #language-toggle.en-active .en {
       background-color: #ccc;
       color: #000;
     }
 
+    .box {
+      width: 100%;
+    }
+
+    .box p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
     @media (max-width: 768px) {
+      .box {
+        width: 80% !important;
+        margin: 0 auto;
+      }
       .box p {
         text-align: justify;
       }
@@ -137,4 +163,35 @@
   </style>
 </head>
 <body>
-<!-- El resto del contenido HTML se mantiene sin cambios -->
+  <div id="categories-bar">
+    <div class="name-label">
+      <a href="index.html">Maximiliano Vásquez</a>
+    </div>
+    <div class="buttons-container">
+      <button><a href="work.html">work</a></button>
+      <button><a href="commercial.html">commercial</a></button>
+      <button><a href="info.html">info</a></button>
+      <button><a href="follow.html">follow</a></button>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2 id="clients-title">Clientes Seleccionados y Más</h2>
+    <p id="clients-text">Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, Pedritos Wear, Dos Lobos, AdDI, Joia Market, Melt, Paris, Drops, Sony Music, Lupe Gajardo, Munay Sisters, Joia Magazine, Fort Magazine, trabajos destacados en Hypebeast, Vogue México y más.</p>
+
+    <h1 id="about-title">Sobre mí</h1>
+    <p id="about-p1">Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y profundamente intuitiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque intersecta perfectamente entre lo comercial y lo conceptual, desarrollando identidades genuinas para cada uno de sus clientes.</p>
+    <p id="about-p2">Su carrera como stylist está influenciada por la música y su universo visual, la cultura digital y un apego infinito al research, desarrollando storytellings que reinterpretan símbolos con precisión, sentido y una propuesta avant garde. Su obra celebra lo joven, explora las subculturas y desafía las normas tradicionales del vestuario, creando imágenes frescas que son, en esencia, inolvidables.</p>
+
+    <div class="contact-info">
+      <h2 id="contact-title">Contacto</h2>
+      <p id="contact-text">Para cualquier comisión o trabajo, por favor escribir a: <a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div id="language-toggle" class="es-active">
+    <div class="es">ES</div>
+    <div class="en">EN</div>
+  </div>
+</body>
+</html>
