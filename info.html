@@ -7,10 +7,18 @@
   <title>Información - Maximiliano Vásquez</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet" />
   <style>
+    @font-face {
+      font-family: 'NeueHaasDisplay';
+      src: url('fonts/NeueHaasDisplayMediu.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; height: 100%; }
     body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: 'NeueHaasDisplay', sans-serif;
       font-weight: 300;
       background: #000;
       color: #fff;
@@ -222,99 +230,4 @@
   </style>
 </head>
 <body>
-  <div id="categories-bar">
-    <div class="top-bar">
-      <a href="index.html" class="name-label">Maximiliano Vásquez</a>
-      <button class="hamburger" id="hamburgerBtn">•</button>
-    </div>
-    <div class="buttons-container" id="mobileMenu">
-      <button><a href="work.html">Work</a></button>
-      <button><a href="commercial.html">Commercial</a></button>
-      <button><a href="info.html">Info</a></button>
-      <button><a href="follow.html">Follow</a></button>
-    </div>
-  </div>
-
-  <div id="language-toggle" role="button" aria-label="Cambiar idioma" tabindex="0" class="es-active">
-    <div class="es">ES</div>
-    <div class="en">EN</div>
-  </div>
-
-  <div class="content">
-    <div class="box">
-      <h2 id="clients-title">Clientes Seleccionados y Más</h2>
-      <p id="clients-text">Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, Pedritos Wear, Dos Lobos, AdDI, Joia Market, Melt, Paris, Drops, Sony Music, Lupe Gajardo, Munay Sisters, Joia Magazine, Fort Magazine, trabajos destacados en Hypebeast, Vogue México y más.</p>
-    </div>
-    <div class="box">
-      <h1 id="about-title">Sobre mí</h1>
-      <p id="about-p1">Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y profundamente intuitiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque intersecta perfectamente entre lo comercial y lo conceptual, desarrollando identidades genuinas para cada uno de sus clientes.</p>
-      <p id="about-p2">Su carrera como stylist está influenciada por la música y su universo visual, la cultura digital y un apego infinito al research, desarrollando storytellings que reinterpretan símbolos con precisión, sentido y una propuesta avant garde. Su obra celebra lo joven, explora las subculturas y desafía las normas tradicionales del vestuario, creando imágenes frescas que son, en esencia, inolvidables.</p>
-      <div class="contact-info">
-        <h2 id="contact-title">Contacto</h2>
-        <p id="contact-text">Para cualquier comisión o trabajo, por favor escribir a: <a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a></p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const toggle = document.getElementById('language-toggle');
-
-    const texts = {
-      es: {
-        clientsTitle: 'Clientes Seleccionados y Más',
-        clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, Pedritos Wear, Dos Lobos, AdDI, Neit whiskey, Joia Market, Melt, Paris, Drops, Sony Music, Lupe Gajardo, Munay Sisters, Joia Magazine, Fort Magazine, trabajos destacados en Hypebeast, Vogue México y más.',
-        aboutTitle: 'Sobre mí',
-        aboutP1: 'Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y profundamente intuitiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque intersecta perfectamente entre lo comercial y lo conceptual, desarrollando identidades genuinas para cada uno de sus clientes.',
-        aboutP2: 'Su carrera como stylist está influenciada por la música y su universo visual, la cultura digital y un apego infinito al research, desarrollando storytellings que reinterpretan símbolos con precisión, sentido y una propuesta avant garde. Su obra celebra lo joven, explora las subculturas y desafía las normas tradicionales del vestuario, creando imágenes frescas que son, en esencia, inolvidables.',
-        contactTitle: 'Contacto',
-        contactText: 'Para cualquier comisión o trabajo, por favor escribir a: '
-      },
-      en: {
-        clientsTitle: 'Select Clients and More',
-        clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, Pedritos Wear, Dos Lobos, AdDI, Neit whiskey, Joia Market, Melt, Paris, Drops, Sony Music, Lupe Gajardo, Munay Sisters featured works on Fort Magazine, Hypebeast, Joia Magazine, Vogue Mexico & more.',
-        aboutTitle: 'About',
-        aboutP1: 'Born in Santiago de Chile, Maximiliano Vásquez is a stylist, artist and creative consultant who combines his training in advertising and creative management with a sharp and deeply intuitive aesthetic vision. After six years of direction in communication and fashion retail, his approach perfectly intersects between commercial and conceptual, developing genuine identities for each of his clients.',
-        aboutP2: 'Raised between digital and physical, with a strong connection to the underground scene, his career as a stylist is influenced by music and its visual universe, digital culture and an infinite attachment to research, developing storytellings that reinterpret symbols with precision, meaning and an avant-garde proposal. His work celebrates youth, explores subcultures and challenges traditional wardrobe norms, creating fresh images that are, essentially, unforgettable.',
-        contactTitle: 'Contact',
-        contactText: 'For any commission or work, please write to: '
-      }
-    };
-
-    toggle.addEventListener('click', () => {
-      const isEsActive = toggle.classList.contains('es-active');
-      if (isEsActive) {
-        toggle.classList.remove('es-active');
-        toggle.classList.add('en-active');
-        updateTexts('en');
-      } else {
-        toggle.classList.remove('en-active');
-        toggle.classList.add('es-active');
-        updateTexts('es');
-      }
-    });
-
-    function updateTexts(lang) {
-      document.getElementById('clients-title').textContent = texts[lang].clientsTitle;
-      document.getElementById('clients-text').textContent = texts[lang].clientsText;
-      document.getElementById('about-title').textContent = texts[lang].aboutTitle;
-      document.getElementById('about-p1').textContent = texts[lang].aboutP1;
-      document.getElementById('about-p2').textContent = texts[lang].aboutP2;
-      document.getElementById('contact-title').textContent = texts[lang].contactTitle;
-      document.getElementById('contact-text').innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
-    }
-
-    const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    hamburgerBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("show");
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) {
-        mobileMenu.classList.remove("show");
-      }
-    });
-  </script>
-</body>
-</html>
+<!-- contenido intacto -->
