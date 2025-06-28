@@ -1,314 +1,321 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Información - Maximiliano Vásquez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Special+Elite&display=swap" rel="stylesheet" />
-  <style>
-    @font-face {
-      font-family: 'NeueHaasDisplay';
-      src: url('fonts/NeueHaasDisplayMediu.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Información - Maximiliano Vásquez</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Special+Elite&display=swap" rel="stylesheet" />
+<style>
+  @font-face {
+    font-family: 'NeueHaasDisplay';
+    src: url('fonts/NeueHaasDisplayMediu.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; height: 100%; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      background: #000;
-      color: #ccc;
-      line-height: 1.2;
-      padding: 2rem 1rem 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-      font-size: 0.7rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    background: #000;
+    color: #ccc;
+    line-height: 1.2;
+    padding: 2rem 1rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 0.7rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
 
-    a,
-    #categories-bar .name-label,
-    #categories-bar button,
-    .contact-info a {
-      color: #ccc !important;
-      text-decoration: none;
-      font-family: 'NeueHaasDisplay', sans-serif !important;
-    }
+  a,
+  #categories-bar .name-label,
+  #categories-bar button,
+  .contact-info a {
+    color: #ccc !important;
+    text-decoration: none;
+    font-family: 'NeueHaasDisplay', sans-serif !important;
+  }
 
-    #categories-bar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: transparent;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 12px;
-      z-index: 1000;
-      height: 40px;
-      width: 100vw;
-      max-width: 100vw;
-      user-select: none;
-    }
+  #categories-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    z-index: 1000;
+    height: 40px;
+    width: 100vw;
+    max-width: 100vw;
+    user-select: none;
+  }
 
-    #categories-bar .name-label {
-      font-family: 'NeueHaasDisplay', sans-serif !important;
-      font-weight: 400;
-      font-size: 1rem;
-      white-space: nowrap;
-      text-align: left;
-      flex-shrink: 0;
-      margin-left: 24px;
-    }
+  #categories-bar .name-label {
+    font-family: 'NeueHaasDisplay', sans-serif !important;
+    font-weight: 400;
+    font-size: 1rem;
+    white-space: nowrap;
+    text-align: left;
+    flex-shrink: 0;
+    margin-left: 24px;
+  }
 
-    #categories-bar .buttons-container {
-      display: flex;
-      gap: 24px;
-      justify-content: flex-end;
-      flex: 1;
-      margin-right: 24px;
-    }
+  #categories-bar .buttons-container {
+    display: flex;
+    gap: 24px;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 24px;
+  }
 
-    #categories-bar button {
-      font-family: 'NeueHaasDisplay', sans-serif !important;
-      font-size: 0.6rem;
-      font-weight: 400;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px 16px;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
-      text-align: center;
-    }
+  #categories-bar button {
+    font-family: 'NeueHaasDisplay', sans-serif !important;
+    font-size: 0.6rem;
+    font-weight: 400;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    text-align: center;
+  }
 
-    #categories-bar button:hover,
-    #categories-bar button:focus,
-    #categories-bar button.active {
-      border-color: #ccc;
-      outline: none;
-      font-weight: 400;
-    }
+  #categories-bar button:hover,
+  #categories-bar button:focus,
+  #categories-bar button.active {
+    border-color: #ccc;
+    outline: none;
+    font-weight: 400;
+  }
 
-    /* Titulos con NeueHaasDisplay */
-    h1, h2 {
-      font-family: 'NeueHaasDisplay', sans-serif !important;
-      font-weight: 400;
-      margin: 0 0 0.5rem 0;
-      color: #ccc;
-      text-align: left;
-    }
+  /* Titulos con NeueHaasDisplay */
+  h1, h2 {
+    font-family: 'NeueHaasDisplay', sans-serif !important;
+    font-weight: 400;
+    margin: 0 0 0.5rem 0;
+    color: #ccc;
+    text-align: left;
+  }
 
-    /* Contenido texto en Montserrat */
-    .box p {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      text-align: justify;
-      color: #ccc;
-      font-size: 0.7rem;
-    }
+  /* Contenido texto en Montserrat */
+  .box p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: justify;
+    color: #ccc;
+    font-size: 0.7rem;
+  }
 
-    /* Contenedores de texto separados */
+  /* Contenedores de texto separados */
+  .text-columns {
+    display: flex;
+    gap: 3rem;
+    max-width: 900px;
+    width: 100%;
+    justify-content: center;
+    padding-top: 3rem;
+    box-sizing: border-box;
+  }
+  .text-column {
+    flex: 1;
+    max-width: 45%;
+  }
+
+  /* En mobile, stackea todo, ajusta tipografía y baja el texto */
+  @media (max-width: 768px) {
     .text-columns {
-      display: flex;
-      gap: 3rem;
-      max-width: 900px;
-      width: 100%;
-      justify-content: center;
-      padding-top: 3rem;
-      box-sizing: border-box;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 90%;
+      padding-top: 5rem; /* más abajo */
     }
     .text-column {
-      flex: 1;
-      max-width: 45%;
+      max-width: 100%;
+      font-size: 0.65rem; /* un poco más chico */
     }
-
-    /* En mobile, stackea todo, ajusta tipografía y baja el texto */
-    @media (max-width: 768px) {
-      .text-columns {
-        flex-direction: column;
-        gap: 1.5rem;
-        max-width: 90%;
-        padding-top: 5rem; /* más abajo */
-      }
-      .text-column {
-        max-width: 100%;
-        font-size: 0.65rem; /* un poco más chico */
-      }
-      .box p {
-        text-align: justify;
-      }
-      .box h1, .box h2 {
-        text-align: left;
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-      }
+    .box p {
+      text-align: justify;
     }
-
-    #language-toggle {
+    .box h1, .box h2 {
+      text-align: left;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    /* Oculta menú desktop cuando se muestre móvil */
+    #categories-bar .buttons-container.show {
+      display: flex !important;
+      flex-direction: column;
+      background: #111;
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1100;
-      display: flex;
-      width: 60px;
-      height: 26px;
-      border-radius: 20px;
-      border: 2px solid #666;
-      overflow: hidden;
-      cursor: pointer;
-      user-select: none;
-      font-family: 'NeueHaasDisplay', sans-serif;
-      font-weight: 600;
-      font-size: 0.7rem;
-      background: #000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-      transition: box-shadow 0.3s ease;
+      top: 40px;
+      right: 0;
+      width: 160px;
+      padding: 10px 8px;
+      border-radius: 0 0 0 8px;
+      gap: 12px;
+      z-index: 1050;
     }
+  }
 
-    #language-toggle:hover {
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-    }
+  #language-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1100;
+    display: flex;
+    width: 60px;
+    height: 26px;
+    border-radius: 20px;
+    border: 2px solid #666;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'NeueHaasDisplay', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    background: #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.3s ease;
+  }
 
-    #language-toggle > div {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      position: relative;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+  #language-toggle:hover {
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  }
 
-    #language-toggle .es, #language-toggle .en {
-      color: #666;
-      background-color: #111;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+  #language-toggle > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-    /* Switch bubble */
-    #language-toggle::before {
-      content: "";
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 26px;
-      height: 20px;
-      background-color: #ccc;
-      border-radius: 20px;
-      transition: left 0.3s ease;
-      z-index: 0;
-    }
+  #language-toggle .es, #language-toggle .en {
+    color: #666;
+    background-color: #111;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-    /* Estado ES activo */
-    #language-toggle.es-active {
-      background-color: #000;
-    }
-    #language-toggle.es-active .es {
-      background-color: #ccc;
-      color: #000;
-      z-index: 1;
-      position: relative;
-    }
-    #language-toggle.es-active .en {
-      background-color: #111;
-      color: #666;
-      z-index: 0;
-      position: relative;
-    }
-    #language-toggle.es-active::before {
-      left: 3px;
-      background-color: #ccc;
-    }
+  /* Switch bubble */
+  #language-toggle::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 26px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: left 0.3s ease;
+    z-index: 0;
+  }
 
-    /* Estado EN activo */
-    #language-toggle.en-active {
-      background-color: #000;
-    }
-    #language-toggle.en-active .en {
-      background-color: #ccc;
-      color: #000;
-      z-index: 1;
-      position: relative;
-    }
-    #language-toggle.en-active .es {
-      background-color: #111;
-      color: #666;
-      z-index: 0;
-      position: relative;
-    }
-    #language-toggle.en-active::before {
-      left: 31px;
-      background-color: #ccc;
-    }
+  /* Estado ES activo */
+  #language-toggle.es-active {
+    background-color: #000;
+  }
+  #language-toggle.es-active .es {
+    background-color: #ccc;
+    color: #000;
+    z-index: 1;
+    position: relative;
+  }
+  #language-toggle.es-active .en {
+    background-color: #111;
+    color: #666;
+    z-index: 0;
+    position: relative;
+  }
+  #language-toggle.es-active::before {
+    left: 3px;
+    background-color: #ccc;
+  }
 
-    /* Menú hamburguesa (mobile only) */
-    .hamburger {
+  /* Estado EN activo */
+  #language-toggle.en-active {
+    background-color: #000;
+  }
+  #language-toggle.en-active .en {
+    background-color: #ccc;
+    color: #000;
+    z-index: 1;
+    position: relative;
+  }
+  #language-toggle.en-active .es {
+    background-color: #111;
+    color: #666;
+    z-index: 0;
+    position: relative;
+  }
+  #language-toggle.en-active::before {
+    left: 31px;
+    background-color: #ccc;
+  }
+
+  /* Menú hamburguesa botón con puntos verticales */
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 8px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    background: #000;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: #ccc;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+    #categories-bar .buttons-container {
       display: none;
-      font-family: 'NeueHaasDisplay', sans-serif !important;
-      font-size: 2.5rem;
-      color: #ccc;
-      background: none;
-      border: none;
-      cursor: pointer;
+    }
+    #categories-bar .buttons-container.show {
+      display: flex !important;
+      flex-direction: column;
+      background: #111;
       position: fixed;
-      top: 4px;
-      right: 12px;
-      z-index: 1100;
+      top: 40px;
+      right: 0;
+      width: 160px;
+      padding: 10px 8px;
+      border-radius: 0 0 0 8px;
+      gap: 12px;
+      z-index: 1050;
     }
-
-    @media (max-width: 768px) {
-      #categories-bar .buttons-container {
-        display: none !important;
-      }
-      .hamburger {
-        display: block;
-      }
-      #mobileMenu {
-        position: fixed;
-        top: 40px;
-        right: 0;
-        background: #111;
-        width: 160px;
-        display: none;
-        flex-direction: column;
-        gap: 12px;
-        padding: 10px;
-        border-radius: 0 0 0 8px;
-        z-index: 1050;
-      }
-      #mobileMenu.show {
-        display: flex;
-      }
-      #mobileMenu button {
-        font-family: 'NeueHaasDisplay', sans-serif !important;
-        background: none;
-        border: none;
-        color: #ccc;
-        font-size: 0.85rem;
-        text-align: left;
-        cursor: pointer;
-        padding: 8px 0;
-      }
-      #mobileMenu button a {
-        color: #ccc;
-        text-decoration: none;
-      }
-      #mobileMenu button:hover {
-        color: #fff;
-      }
+    .hamburger {
+      display: flex;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
 
@@ -317,22 +324,19 @@
       <a href="index.html">Maximiliano Vásquez</a>
     </div>
 
-    <div class="buttons-container">
+    <div class="buttons-container" id="menuButtons">
       <button><a href="work.html">work</a></button>
       <button><a href="commercial.html">commercial</a></button>
       <button><a href="info.html">info</a></button>
       <button><a href="follow.html">follow</a></button>
     </div>
 
-    <button class="hamburger" id="hamburgerBtn" aria-label="Menú móvil">☰</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú móvil" aria-expanded="false" aria-controls="menuButtons" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
-
-  <nav id="mobileMenu" aria-label="Menú móvil">
-    <button><a href="work.html">work</a></button>
-    <button><a href="commercial.html">commercial</a></button>
-    <button><a href="info.html">info</a></button>
-    <button><a href="follow.html">follow</a></button>
-  </nav>
 
   <div class="text-columns">
     <div class="text-column box">
@@ -358,6 +362,23 @@
   </div>
 
 <script>
+  // Toggle menú hamburguesa
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const menuButtons = document.getElementById('menuButtons');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+    hamburgerBtn.setAttribute('aria-expanded', String(!isExpanded));
+    menuButtons.classList.toggle('show');
+  });
+
+  hamburgerBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      hamburgerBtn.click();
+    }
+  });
+
   // Toggle idioma
   const toggle = document.getElementById('language-toggle');
 
@@ -395,7 +416,6 @@
     }
   });
 
-  // Enter key also toggles
   toggle.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -410,4 +430,12 @@
 
     const aboutParagraphs = document.querySelectorAll('.text-column.box:nth-of-type(2) p');
     aboutParagraphs[0].textContent = texts[lang].aboutP1;
-    aboutParagraphs[1].textContent = texts[lang
+    aboutParagraphs[1].textContent = texts[lang].aboutP2;
+
+    document.querySelector('.contact-info h2').textContent = texts[lang].contactTitle;
+    const contactP = document.querySelector('.contact-info p');
+    contactP.innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
+  }
+</script>
+</body>
+</html>
