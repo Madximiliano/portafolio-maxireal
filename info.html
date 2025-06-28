@@ -133,19 +133,25 @@
       max-width: 45%;
     }
 
-    /* En mobile, stackea todo y quita gap */
+    /* En mobile, stackea todo, ajusta tipografía y baja el texto */
     @media (max-width: 768px) {
       .text-columns {
         flex-direction: column;
         gap: 1.5rem;
-        padding-top: 0;
         max-width: 90%;
+        padding-top: 5rem; /* más abajo */
       }
       .text-column {
         max-width: 100%;
+        font-size: 0.65rem; /* un poco más chico */
       }
-      .box {
-        width: 100% !important;
+      .box p {
+        text-align: justify;
+      }
+      .box h1, .box h2 {
+        text-align: left;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
       }
     }
 
@@ -246,54 +252,62 @@
       background-color: #ccc;
     }
 
-    /* Menu hamburguesa */
-    #hamburgerBtn {
+    /* Menú hamburguesa (mobile only) */
+    .hamburger {
+      display: none;
       font-family: 'NeueHaasDisplay', sans-serif !important;
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: #ccc;
       background: none;
       border: none;
       cursor: pointer;
-      z-index: 1100;
       position: fixed;
       top: 4px;
       right: 12px;
+      z-index: 1100;
     }
 
-    #mobileMenu {
-      position: fixed;
-      top: 40px;
-      right: 0;
-      background: #111;
-      width: 160px;
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      padding: 10px;
-      border-radius: 0 0 0 8px;
-      z-index: 1050;
+    @media (max-width: 768px) {
+      #categories-bar .buttons-container {
+        display: none !important;
+      }
+      .hamburger {
+        display: block;
+      }
+      #mobileMenu {
+        position: fixed;
+        top: 40px;
+        right: 0;
+        background: #111;
+        width: 160px;
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px;
+        border-radius: 0 0 0 8px;
+        z-index: 1050;
+      }
+      #mobileMenu.show {
+        display: flex;
+      }
+      #mobileMenu button {
+        font-family: 'NeueHaasDisplay', sans-serif !important;
+        background: none;
+        border: none;
+        color: #ccc;
+        font-size: 0.85rem;
+        text-align: left;
+        cursor: pointer;
+        padding: 8px 0;
+      }
+      #mobileMenu button a {
+        color: #ccc;
+        text-decoration: none;
+      }
+      #mobileMenu button:hover {
+        color: #fff;
+      }
     }
-    #mobileMenu.show {
-      display: flex;
-    }
-    #mobileMenu button {
-      font-family: 'NeueHaasDisplay', sans-serif !important;
-      background: none;
-      border: none;
-      color: #ccc;
-      font-size: 0.85rem;
-      text-align: left;
-      cursor: pointer;
-      padding: 8px 0;
-    }
-    #mobileMenu button a {
-      color: #ccc;
-      text-decoration: none;
-    }
-    #mobileMenu button:hover {
-      color: #fff;
-    }
-
   </style>
 </head>
 <body>
@@ -302,21 +316,23 @@
     <div class="name-label">
       <a href="index.html">Maximiliano Vásquez</a>
     </div>
+
     <div class="buttons-container">
       <button><a href="work.html">work</a></button>
       <button><a href="commercial.html">commercial</a></button>
       <button><a href="info.html">info</a></button>
       <button><a href="follow.html">follow</a></button>
     </div>
-    <button id="hamburgerBtn" aria-label="Menú móvil">☰</button>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú móvil">☰</button>
   </div>
 
-  <div id="mobileMenu" aria-label="Menú móvil">
+  <nav id="mobileMenu" aria-label="Menú móvil">
     <button><a href="work.html">work</a></button>
     <button><a href="commercial.html">commercial</a></button>
     <button><a href="info.html">info</a></button>
     <button><a href="follow.html">follow</a></button>
-  </div>
+  </nav>
 
   <div class="text-columns">
     <div class="text-column box">
@@ -379,31 +395,19 @@
     }
   });
 
+  // Enter key also toggles
+  toggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle.click();
+    }
+  });
+
   function updateTexts(lang) {
     document.querySelector('.text-column.box:nth-of-type(1) h1').textContent = texts[lang].clientsTitle;
     document.querySelector('.text-column.box:nth-of-type(1) p').textContent = texts[lang].clientsText;
     document.querySelector('.text-column.box:nth-of-type(2) h2').textContent = texts[lang].aboutTitle;
+
     const aboutParagraphs = document.querySelectorAll('.text-column.box:nth-of-type(2) p');
     aboutParagraphs[0].textContent = texts[lang].aboutP1;
-    aboutParagraphs[1].textContent = texts[lang].aboutP2;
-    document.querySelector('.contact-info h2').textContent = texts[lang].contactTitle;
-    document.querySelector('.contact-info p').innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
-  }
-
-  // Menu hamburguesa mobile
-  const hamburgerBtn = document.getElementById("hamburgerBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  hamburgerBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("show");
-  });
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-      mobileMenu.classList.remove("show");
-    }
-  });
-</script>
-
-</body>
-</html>
+    aboutParagraphs[1].textContent = texts[lang
