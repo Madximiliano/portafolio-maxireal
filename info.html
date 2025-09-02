@@ -166,40 +166,110 @@
       margin-bottom: 0.5rem;
     }
   }
+
+  /* Toggle idioma estilo original */
+  #language-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1100;
+    display: flex;
+    width: 60px;
+    height: 26px;
+    border-radius: 20px;
+    border: 2px solid #666;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'NeueHaasDisplay', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    background: #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.3s ease;
+  }
+
+  #language-toggle:hover {
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  }
+
+  #language-toggle > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #language-toggle .es, #language-toggle .en {
+    color: #666;
+    background-color: #111;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #language-toggle::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 31px; /* EN activo por defecto */
+    width: 26px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: left 0.3s ease;
+    z-index: 0;
+  }
+
+  #language-toggle.en-active .en {
+    background-color: #ccc;
+    color: #000;
+    z-index: 1;
+    position: relative;
+  }
+  #language-toggle.en-active .es {
+    background-color: #111;
+    color: #666;
+    z-index: 0;
+    position: relative;
+  }
+  #language-toggle.en-active::before {
+    left: 31px;
+    background-color: #ccc;
+  }
+
+  #language-toggle.es-active .es {
+    background-color: #ccc;
+    color: #000;
+    z-index: 1;
+    position: relative;
+  }
+  #language-toggle.es-active .en {
+    background-color: #111;
+    color: #666;
+    z-index: 0;
+    position: relative;
+  }
+  #language-toggle.es-active::before {
+    left: 3px;
+    background-color: #ccc;
+  }
 </style>
 </head>
 <body>
 
-  <div id="categories-bar">
-    <a href="index.html" class="name-label">Maximiliano Vásquez</a>
-    <div class="buttons-container">
-      <button><a href="index.html" style="color: #ccc; text-decoration: none;">index</a></button>
-      <button><a href="commercial.html" style="color: #ccc; text-decoration: none;">Commercial</a></button>
-      <button class="active" aria-current="true">Info</button>
-      <button><a href="https://www.instagram.com/madximiliano" target="_blank" style="color: #ccc; text-decoration: none;">follow</a></button>
-    </div>
+<div id="categories-bar">
+  <a href="index.html" class="name-label">Maximiliano Vásquez</a>
+  <div class="buttons-container">
+    <button><a href="index.html" style="color: #ccc; text-decoration: none;">index</a></button>
+    <button><a href="commercial.html" style="color: #ccc; text-decoration: none;">Commercial</a></button>
+    <button class="active" aria-current="true">Info</button>
+    <button><a href="https://www.instagram.com/madximiliano" target="_blank" style="color: #ccc; text-decoration: none;">follow</a></button>
   </div>
+</div>
 
-  <div class="text-columns">
-    <div class="text-column box">
-      <h1>Clientes Seleccionados</h1>
-      <p>Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ. Trabajos destacados por Joia Magazine, Fort Magazine, Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México, entre otros.</p>
-    </div>
-
-    <div class="text-column box">
-      <h2>Sobre mí</h2>
-      <p>Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y casi instintiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque en el mercado intersecta lo comercial y lo conceptual, desarrollando identidades reconocibles para su variada cartera de clientes.</p>
-      <p>Su carrera como creativo está influenciada por el amor a las grandes ciudades, la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.</p>
-
-      <div class="contact-info">
-        <h2>Contacto</h2>
-        <p>Para cualquier comisión o trabajo, por favor escribir a: <a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a></p>
-      </div>
-    </div>
-  </div>
-
-<script>
-  // Si tienes scripts de idioma o otros, los mantienes aquí
-</script>
-</body>
-</html>
+<div class="text-columns">
+  <div class="text-column box">
+    <h1>Selected Clients</h1>
+    <p>Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gaj
