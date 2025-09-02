@@ -59,6 +59,7 @@
     user-select: none;
   }
 
+  /* Nombre un pelito más a la izquierda */
   #categories-bar .name-label {
     font-family: 'NeueHaasDisplay', sans-serif !important;
     font-weight: 400;
@@ -66,7 +67,7 @@
     white-space: nowrap;
     text-align: left;
     flex-shrink: 0;
-    margin-left: 24px;
+    margin-left: 18px; /* <- ajustado */
     color: #ccc;
     text-decoration: none;
   }
@@ -131,7 +132,6 @@
     font-size: 0.7rem;
   }
 
-  /* Contenedores de texto separados */
   .text-columns {
     display: flex;
     gap: 3rem;
@@ -146,17 +146,16 @@
     max-width: 45%;
   }
 
-  /* En mobile, stackea todo, ajusta tipografía y baja el texto */
   @media (max-width: 768px) {
     .text-columns {
       flex-direction: column;
       gap: 1.5rem;
       max-width: 90%;
-      padding-top: 5rem; /* más abajo */
+      padding-top: 5rem;
     }
     .text-column {
       max-width: 100%;
-      font-size: 0.65rem; /* un poco más chico */
+      font-size: 0.65rem;
     }
     .box p {
       text-align: justify;
@@ -167,114 +166,17 @@
       margin-bottom: 0.5rem;
     }
   }
-
-  #language-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1100;
-    display: flex;
-    width: 60px;
-    height: 26px;
-    border-radius: 20px;
-    border: 2px solid #666;
-    overflow: hidden;
-    cursor: pointer;
-    user-select: none;
-    font-family: 'NeueHaasDisplay', sans-serif;
-    font-weight: 600;
-    font-size: 0.7rem;
-    background: #000;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-    transition: box-shadow 0.3s ease;
-  }
-
-  #language-toggle:hover {
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-  }
-
-  #language-toggle > div {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    position: relative;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  #language-toggle .es, #language-toggle .en {
-    color: #666;
-    background-color: #111;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  /* Switch bubble */
-  #language-toggle::before {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 26px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 20px;
-    transition: left 0.3s ease;
-    z-index: 0;
-  }
-
-  /* Estado ES activo */
-  #language-toggle.es-active {
-    background-color: #000;
-  }
-  #language-toggle.es-active .es {
-    background-color: #ccc;
-    color: #000;
-    z-index: 1;
-    position: relative;
-  }
-  #language-toggle.es-active .en {
-    background-color: #111;
-    color: #666;
-    z-index: 0;
-    position: relative;
-  }
-  #language-toggle.es-active::before {
-    left: 3px;
-    background-color: #ccc;
-  }
-
-  /* Estado EN activo */
-  #language-toggle.en-active {
-    background-color: #000;
-  }
-  #language-toggle.en-active .en {
-    background-color: #ccc;
-    color: #000;
-    z-index: 1;
-    position: relative;
-  }
-  #language-toggle.en-active .es {
-    background-color: #111;
-    color: #666;
-    z-index: 0;
-    position: relative;
-  }
-  #language-toggle.en-active::before {
-    left: 31px;
-    background-color: #ccc;
-  }
 </style>
 </head>
 <body>
 
   <div id="categories-bar">
-    <a href="index2.html" class="name-label">Maximiliano Vásquez</a>
+    <a href="index.html" class="name-label">Maximiliano Vásquez</a>
     <div class="buttons-container">
-      <button class="active" aria-current="true">Work</button>
-      <button>Commercial</button>
-      <button><a href="info.html" style="color: #ccc; text-decoration: none;">Info</a></button>
-      <button><a href="contact.html" style="color: #ccc; text-decoration: none;">Contact</a></button>
+      <button><a href="index.html" style="color: #ccc; text-decoration: none;">Work</a></button>
+      <button><a href="commercial.html" style="color: #ccc; text-decoration: none;">Commercial</a></button>
+      <button class="active" aria-current="true">Info</button>
+      <button><a href="https://www.instagram.com/madximiliano" target="_blank" style="color: #ccc; text-decoration: none;">follow</a></button>
     </div>
   </div>
 
@@ -288,7 +190,6 @@
       <h2>Sobre mí</h2>
       <p>Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y casi instintiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque en el mercado intersecta lo comercial y lo conceptual, desarrollando identidades reconocibles para su variada cartera de clientes.</p>
       <p>Su carrera como creativo está influenciada por el amor a las grandes ciudades, la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.</p>
-      <p>Su obra personal celebra la juventud y el ingenio, rescata la unicidad de lo outsider y la sofisticación de lo underground, invitando a desafiar las normas tradicionales del vestuario, creando imágenes frescas e inolvidables.</p>
 
       <div class="contact-info">
         <h2>Contacto</h2>
@@ -297,69 +198,8 @@
     </div>
   </div>
 
-  <div id="language-toggle" role="button" aria-label="Cambiar idioma" tabindex="0" class="es-active">
-    <div class="es">ES</div>
-    <div class="en">EN</div>
-  </div>
-
 <script>
-  // Toggle idioma
-  const toggle = document.getElementById('language-toggle');
-
-  const texts = {
-    es: {
-      clientsTitle: 'Clientes Seleccionados y Más',
-      clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, Pedritos Wear, Dos Lobos, AdDI, Neit whiskey, Joia Market, Melt, Paris, Drops, Sony Music, Lupe Gajardo, Munay Sisters, Joia Magazine, Fort Magazine, trabajos destacados en Hypebeast, Vogue México y más.',
-      aboutTitle: 'Sobre mí',
-      aboutP1: 'Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y profundamente intuitiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque intersecta perfectamente entre lo comercial y lo conceptual, desarrollando identidades genuinas para cada uno de sus clientes.',
-      aboutP2: 'Criado entre lo digital, lo físico, y con una fuerte conexión a la escena under, su carrera como stylist está influenciada por la música y su universo visual, la cultura digital y un apego infinito al research, desarrollando storytellings que reinterpretan símbolos con precisión, sentido y una propuesta avant g. Su obra celebra lo joven, explora las subculturas y desafía las normas tradicionales del vestuario, creando imágenes frescas que son, en esencia, inolvidables.',
-      contactTitle: 'Contacto',
-      contactText: 'Para cualquier comisión o trabajo, por favor escribir a: '
-    },
-    en: {
-      clientsTitle: 'Select Clients and More',
-      clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, AdDI, Neit whiskey, Joia Market, Melt, Paris, Drops, Sony Music, Lupe Gajardo, Munay Sisters featured works on Fort Magazine, Hypebeast, Joia Magazine, Vogue Mexico & more.',
-      aboutTitle: 'About',
-      aboutP1: 'Born in Santiago de Chile, Maximiliano Vásquez is a stylist, artist and creative consultant who combines his training in advertising and creative management with a sharp and deeply intuitive aesthetic vision. After six years of direction in communication and fashion retail, his approach perfectly intersects between commercial and conceptual, developing genuine identities for each of his clients.',
-      aboutP2: 'Raised between digital and physical, with a strong connection to the underground scene, his career as a stylist is influenced by music and its visual universe, digital culture and an infinite attachment to research, developing storytellings that reinterpret symbols with precision, meaning and an avant-garde proposal. His work celebrates youth, explores subcultures and challenges traditional wardrobe norms, creating fresh images that are, essentially, unforgettable.',
-      contactTitle: 'Contact',
-      contactText: 'For any commission or work, please write to: '
-    }
-  };
-
-  toggle.addEventListener('click', () => {
-    const isEsActive = toggle.classList.contains('es-active');
-    if (isEsActive) {
-      toggle.classList.remove('es-active');
-      toggle.classList.add('en-active');
-      updateTexts('en');
-    } else {
-      toggle.classList.remove('en-active');
-      toggle.classList.add('es-active');
-      updateTexts('es');
-    }
-  });
-
-  toggle.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggle.click();
-    }
-  });
-
-  function updateTexts(lang) {
-    document.querySelector('.text-column.box:nth-of-type(1) h1').textContent = texts[lang].clientsTitle;
-    document.querySelector('.text-column.box:nth-of-type(1) p').textContent = texts[lang].clientsText;
-    document.querySelector('.text-column.box:nth-of-type(2) h2').textContent = texts[lang].aboutTitle;
-
-    const aboutParagraphs = document.querySelectorAll('.text-column.box:nth-of-type(2) p');
-    aboutParagraphs[0].textContent = texts[lang].aboutP1;
-    aboutParagraphs[1].textContent = texts[lang].aboutP2;
-
-    document.querySelector('.contact-info h2').textContent = texts[lang].contactTitle;
-    const contactP = document.querySelector('.contact-info p');
-    contactP.innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
-  }
+  // Si tienes scripts de idioma o otros, los mantienes aquí
 </script>
 </body>
 </html>
