@@ -9,7 +9,6 @@
 <style>
   /* ... tu CSS sin cambios ... */
 </style>
-
 </head>
 <body>
 <div id="categories-bar">
@@ -21,10 +20,10 @@
   </div>
 
   <div class="buttons-container" id="mobileMenu">
-    <button><a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">index</a></button>
-    <button><a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
-    <button><a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Info</a></button>
-    <button><a href="https://www.instagram.com/madximiliano" style="color: #ffffff; text-decoration: none;">follow</a></button>
+    <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">index</a>
+    <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Commercial</a>
+    <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Info</a>
+    <a href="https://www.instagram.com/madximiliano" style="color: #ffffff; text-decoration: none;">follow</a>
   </div>
 </div>
 
@@ -46,12 +45,6 @@
       mobileMenu.classList.remove("show");
     }
   });
-
-  // Elimina el script que interceptaba clics en el body para no bloquear enlaces
-  // document.body.addEventListener('click', function(e) {
-  //   e.preventDefault();
-  //   window.location.href = 'https://madximiliano.com';
-  // });
 </script>
 </body>
 </html>
