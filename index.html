@@ -54,7 +54,7 @@
       background: transparent;
       display: flex;
       justify-content: space-between;
-      align-items: right;
+      align-items: center;
       padding: 8px 12px;
       z-index: 1000;
       height: 40px;
@@ -70,7 +70,6 @@
       color: #ffffff;
       white-space: nowrap;
       text-align: left;
-      flex-shrink: 1x;
       margin-left: 24px;
     }
 
@@ -126,11 +125,40 @@
 
     /* MOBILE RESPONSIVE */
     @media (max-width: 768px) {
-      #categories-bar { flex-direction: column; align-items: flex-start; padding: 12px 16px; height: auto; gap: 8px; }
-      #categories-bar .buttons-container { justify-content: right; margin-right: 0; gap: 12px; display:none; flex-direction: column; }
-      #categories-bar .buttons-container.show { display:flex !important; }
-      .hamburger { display:block; font-size:4rem; background:transparent; color:white; border:none; cursor:pointer; z-index:1100; }
-      .buttons-container button { width:100%; text-align:left; padding-left:24px; }
+      #categories-bar {
+        flex-direction: row;
+        align-items: center;
+        padding: 12px 16px;
+        height: auto;
+        gap: 8px;
+      }
+
+      #categories-bar .buttons-container {
+        display: none;
+        flex-direction: column;
+        background-color: transparent;
+        width: 100%;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        padding: 10px 0;
+        z-index: 1000;
+        margin-right: 0;
+      }
+
+      #categories-bar .buttons-container.show { display: flex !important; }
+
+      .hamburger {
+        display: block !important;
+        font-size: 2rem;
+        background: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 1100;
+      }
+
+      .buttons-container button { width: 100%; text-align: left; padding-left: 24px; }
     }
 
     @media (min-width: 769px) { .hamburger { display:none !important; } .buttons-container { display:flex !important; } }
@@ -138,43 +166,22 @@
 </head>
 <body>
   <div id="categories-bar">
-    <div class="top-bar">
-      <div class="name-label">
-        <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
-      </div>
-      <button class="hamburger" id="hamburgerBtn">●</button>
+    <div class="name-label">
+      <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
     </div>
+    <button class="hamburger" id="hamburgerBtn">●</button>
 
     <div class="buttons-container" id="mobileMenu">
       <button><a href="index.html" style="color: #ffffff; text-decoration: none;">index</a></button>
       <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
       <button><a href="info.html" style="color: #ffffff; text-decoration: none;">Info</a></button>
-      <!-- 🔥 Aquí cambiamos a link directo de IG -->
+      <!-- 🔥 Follow directo a Instagram -->
       <button><a href="https://www.instagram.com/madximiliano" target="_blank" style="color: #ffffff; text-decoration: none;">follow</a></button>
     </div>
   </div>
 
   <div class="image-grid" aria-label="Galería de imágenes">
-    <!-- tus imágenes aquí, sin cambios -->
     <img src="imagenes/foto20compress.jpg" alt="Imagen Commercial pequeña 1" class="image-large" />
     <img src="imagenes/foto21compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
     <img src="imagenes/foto12compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
-    <!-- … todas las demás imágenes … -->
-  </div>
-
-  <script>
-    const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    hamburgerBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("show");
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) {
-        mobileMenu.classList.remove("show");
-      }
-    });
-  </script>
-</body>
-</html>
+    <img src="imagenes/foto11compress.png" alt="Imagen Commercial pequeña 1" class="image-large
