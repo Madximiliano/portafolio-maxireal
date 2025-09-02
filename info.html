@@ -268,9 +268,10 @@
 </head>
 <body>
 
-<div id="categories-bar">
+  <div id="categories-bar">
   <a href="index.html" class="name-label">Maximiliano Vásquez</a>
-  <div class="buttons-container">
+  <button class="hamburger" id="hamburgerBtn">●</button>
+  <div class="buttons-container" id="mobileMenu">
     <button><a href="index.html" style="color: #ccc; text-decoration: none;">index</a></button>
     <button><a href="commercial.html" style="color: #ccc; text-decoration: none;">Commercial</a></button>
     <button class="active" aria-current="true">Info</button>
@@ -363,6 +364,18 @@ toggle.addEventListener('keydown', (e) => {
 
 // Inicializa en inglés
 updateTexts('en');
+</script>
+<script>
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  hamburgerBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
+
+  window.addEventListener("resize", () => {
+    if(window.innerWidth > 768) mobileMenu.classList.remove("show");
+  });
 </script>
 </body>
 </html>
