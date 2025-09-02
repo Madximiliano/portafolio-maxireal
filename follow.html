@@ -23,7 +23,7 @@
     <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">index</a>
     <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Commercial</a>
     <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Info</a>
-    <a href="https://www.instagram.com/madximiliano" style="color: #ffffff; text-decoration: none;">follow</a>
+    <a href="#" id="followLink" style="color: #ffffff; text-decoration: none;">follow</a>
   </div>
 </div>
 
@@ -44,6 +44,12 @@
     if (window.innerWidth > 768) {
       mobileMenu.classList.remove("show");
     }
+  });
+
+  // Redirección directa al hacer click en "follow"
+  document.getElementById("followLink").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.location.href = "https://www.instagram.com/madximiliano";
   });
 </script>
 </body>
