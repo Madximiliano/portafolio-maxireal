@@ -1,6 +1,443 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio - Sin espacio con cursor personalizado</title>
+  <!-- Fuente Montserrat y Special Elite -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+  font-family: 'NeueHaasDisplay';
+  src: url('fonts/NeueHaasDisplayMediu.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.name-label a,
+.buttons-container a,
+h1, h2, h3, p {
+  font-family: 'NeueHaasDisplay', sans-serif !important;
+  letter-spacing: 0.02em;
+}
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: auto;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 200;
+      background: #fefefe;
+      color: #ffffff;
+      line-height: 1.2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16"><text x="0" y="12" font-size="14" fill="white" font-family="Arial, sans-serif">mad</text></svg>') 0 12, auto;
+    }
+
+    #categories-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: right;
+      padding: 8px 12px;
+      z-index: 1000;
+      height: 40px;
+      width: 100vw;
+      max-width: 100vw;
+      user-select: none;
+    }
+
+    #categories-bar .name-label {
+      font-family: 'Special Elite', monospace;
+      font-weight: 400;
+      font-size: 0.88rem;
+      color: #ffffff;
+      white-space: nowrap;
+      text-align: left;
+      flex-shrink: 1x;
+      margin-left: 24px;
+    }
+
+    #categories-bar .buttons-container {
+      display: flex;
+      gap: 24px;
+      justify-content: flex-end;
+      flex: 1;
+      margin-right: 24px;
+      flex-wrap: wrap;
+    }
+
+    #categories-bar button {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.6rem;
+      font-weight: 400;
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+      text-align: center;
+    }
+
+    #categories-bar button:hover,
+    #categories-bar button:focus {
+      border-color: #000;
+      outline: none;
+    }
+
+    #categories-bar button.active {
+      border-color: #000;
+      font-weight: 400;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+    }
+
+    .image-large {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0 !important;
+      display: block;
+    }
+
+    .image-small {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0 !important;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .image-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .image-large {
+        grid-column: span 2;
+      }
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      #categories-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 16px;
+        height: auto;
+        gap: 8px;
+      }
+
+      #categories-bar .buttons-container {
+        justify-content: right;
+        margin-right: 0;
+        gap: 12px;
+      }
+
+      #categories-bar .name-label {
+        margin-left: 0;
+        font-size: 0,7rem;
+      }
+
+      .image-large {
+        height: 100%;
+      }
+
+      .image-small {
+        height: 100%;
+      }
+
+      h1, h2, h3 {
+        font-size: 1.3rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* ===== MENÚ DESKTOP (oculta el botón .hamburger) ===== */
+      @media (min-width: 769px) {
+        .buttons-container {
+          display: flex !important;
+          position: static;
+          flex-direction: row;
+          background: transparent;
+          padding: 0;
+          margin-right: 24px;
+          gap: 24px;
+        }
+
+        .buttons-container button {
+          width: auto;
+          text-align: center;
+          padding-left: 0;
+        }
+
+        .hamburger {
+          display: none !important; /* ✅ Oculta correctamente el botón en desktop */
+        }
+      }
+
+      /* ===== MENÚ MOBILE ===== */
+      @media (max-width: 768px) {
+        #categories-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 12px 16px;
+          height: auto;
+          gap: 8px;
+        }
+
+        .buttons-container {
+          display: none !important;
+          flex-direction: column;
+          background-color: transparent;
+          width: 100%;
+          position: absolute;
+          top: 40px;
+          left: 0;
+          padding: 10px 0;
+          z-index: 1000;
+        }
+
+        .buttons-container.show {
+          display: flex !important;
+        }
+
+        .buttons-container button {
+          width: 100%;
+          text-align: left;
+          padding-left: 24px;
+        }
+
+        .hamburger {
+          display: block !important;
+          font-size: 4rem;
+          background: transparent;
+          color: white;
+          border: none;
+          cursor: pointer;
+          z-index: 1100;
+        }
+      }
+
+      /* ===== MENÚ DESKTOP ===== */
+      @media (min-width: 769px) {
+        .buttons-container {
+          display: flex !important;
+          position: static;
+          flex-direction: row;
+          background: transparent;
+          padding: 0;
+          margin-right: 24px;
+          gap: 24px;
+        }
+
+        .buttons-container button {
+          width: auto;
+          text-align: center;
+          padding-left: 0;
+        }
+
+        .hamburger {
+          display: none !important; /* 👈 AHORA sí se ocultará correctamente */
+        }
+      }
+
+      /* DESKTOP: menú siempre visible */
+      @media (min-width: 769px) {
+        .buttons-container {
+          display: flex !important;
+          position: static;
+          flex-direction: row;
+          background: transparent;
+          padding: 0;
+        }
+
+        .buttons-container button {
+          width: auto;
+          text-align: center;
+          padding-left: 0;
+        }
+      }
+
+      /* Agrupa nombre y hamburguesa en una línea */
+      .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+         }
+
+        @media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+  
+  </style>
+</head>
+<body>
+  <div id="categories-bar">
+    <div class="top-bar">
+      <div class="name-label">
+        <a href="index.html" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
+      </div>
+      <button class="hamburger" id="hamburgerBtn">●</button>
+    </div>
+
+    <div class="buttons-container" id="mobileMenu">
+      <button><a href="index.html" style="color: #ffffff; text-decoration: none;">index</a></button>
+      <button><a href="commercial.html" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
+      <button><a href="info.html" style="color: #ffffff; text-decoration: none;">Info</a></button>
+      <button><a href="follow.html" style="color: #ffffff; text-decoration: none;">follow</a></button>
+    </div>
+  </div>
+
+  <div class="image-grid" aria-label="Galería de imágenes">
+    <img src="imagenes/foto20compress.jpg" alt="Imagen Commercial pequeña 1" class="image-large" />
+    <img src="imagenes/foto21compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto12compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+     <img src="imagenes/foto11compress.png" alt="Imagen Commercial pequeña 1" class="image-large" />
+    <img src="imagenes/foto2compress.jpg" alt="Imagen Commercial grande" class="image-small" />
+    <img src="imagenes/foto3compress.jpg" alt="Imagen Work pequeña 1" class="image-small" />
+    <img src="imagenes/foto3bcompress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto4compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto5compress.jpg" alt="Imagen Commercial pequeña 1" class="image-large" />
+    <img src="imagenes/foto6compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto16compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto7compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto8compress.jpg" alt="Imagen Commercial pequeña 1" class="image-large" />
+    <img src="imagenes/foto9compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto10compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto10bcompress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto13compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto14compress.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto15compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto17compress.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto18compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto19compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto20compress.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto22compress.jpg" alt="Imagen Commercial pequeña 1" class="image-small" />
+    <img src="imagenes/foto23compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto24compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto24bcompress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto25compress.jpg" alt="Imagen Commercial pequeña 1" class="image-large" />
+    <img src="imagenes/foto27compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto28compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto29compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto30compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto31compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto32compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto33compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto34compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto35compress.jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto36compress.jpg" alt="Imagen Work grande" class="image-large" />
+    <img src="imagenes/foto37compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto39compress (1).jpg" alt="Imagen Commercial pequeña 2" class="image-small" />
+    <img src="imagenes/foto40compress (1).jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto43compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto44compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto45compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+    <img src="imagenes/foto42compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+   <img src="imagenes/foto41compress.jpg" alt="Imagen Commercial pequeña 2" class="image-large" />
+  </div>
+
+  <script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    hamburgerBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("show");
+    });
+
+    // Oculta menú si cambia a escritorio
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        mobileMenu.classList.remove("show");
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div class="text-columns">
+    <div class="text-column box">
+      <h1>Clientes Seleccionados</h1>
+      <p>Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ. Trabajos destacados por Joia Magazine, Fort Magazine, Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México, entre otros.</p>
+    </div>
+
+    <div class="text-column box">
+      <h2>Sobre mí</h2>
+      <p>Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y casi instintiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque en el mercado intersecta lo comercial y lo conceptual, desarrollando identidades reconocibles para su variada cartera de clientes.</p>
+      <p>Su carrera como creativo está influenciada por el amor a las grandes ciudades, la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.</p>
+      <p>Su obra personal celebra la juventud y el ingenio, rescata la unicidad de lo outsider y la sofisticación de lo underground, invitando a desafiar las normas tradicionales del vestuario, creando imágenes frescas e inolvidables.</p>
+
+      <div class="contact-info">
+        <h2>Contacto</h2>
+        <p>Para cualquier comisión o trabajo, por favor escribir a: <a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="language-toggle" role="button" aria-label="Cambiar idioma" tabindex="0" class="es-active">
+    <div class="es">ES</div>
+    <div class="en">EN</div>
+  </div>
+
+<script>
+  // Toggle menú hamburguesa
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const menuButtons = document.getElementById('menuButtons');
+
+  hamburgerBtn.addEventListener('click', () => {
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Información - Maximiliano Vásquez</title>
@@ -66,7 +503,7 @@
     white-space: nowrap;
     text-align: left;
     flex-shrink: 0;
-    margin-left: 18px;
+    margin-left: 18px; /* ajustado un pelito menos */
     color: #ccc;
     text-decoration: none;
   }
@@ -209,7 +646,7 @@
     content: "";
     position: absolute;
     top: 3px;
-    left: 31px;
+    left: 31px; /* EN activo por defecto */
     width: 26px;
     height: 20px;
     background-color: #ccc;
@@ -274,7 +711,7 @@
   <div class="text-column box">
     <h2>About</h2>
     <p>Born in Santiago, Chile, Maximiliano Vásquez is a stylist, artist, and creative consultant who combines his background in advertising and creative management with a keen, almost instinctive aesthetic vision. After six years of working in communications and retail fashion, his approach to the market intersects the commercial and the conceptual, developing recognizable identities for his diverse client portfolio.</p>
-    <p>His creative career is influenced by his love of big cities, cyberculture, a life as a music lover, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.</p>
+    <p>His creative career is influenced by the big cities & the cyberculture, a life as a music addict, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.</p>
     <p>His personal work celebrates youth and ingenuity, rescues the uniqueness of the outsider and the sophistication of the underground, inviting us to challenge traditional clothing norms and creating fresh and unforgettable images.</p>
 
     <div class="contact-info">
@@ -298,8 +735,8 @@ const texts = {
     clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ, Joia Magazine, Fort Magazine, trabajos destacados por Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México, entre otros.',
     aboutTitle: 'Sobre mí',
     aboutP1: 'Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y casi instintiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque en el mercado intersecta lo comercial y lo conceptual, desarrollando identidades reconocibles para su variada cartera de clientes.',
-    aboutP2: 'Su carrera como creativo está influenciada por el amor a las grandes ciudades, la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.',
-    aboutP3: 'Su obra personal celebra la juventud y el ingenio, rescata la unicidad de lo outsider y la sofisticación de lo underground, invitando a desafiar las normas tradicionales del vestuario, creando imágenes frescas e inolvidables.',
+    aboutP2: 'Su carrera como creativo está influenciada por las grandes ciudades y la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.',
+    aboutP3: 'Su obra personal celebra la juventud y el ingenio, rescata la unicidad de lo outsider y la sofisticación del underground, invitando a desafiar las normas tradicionales del vestuario, creando imágenes frescas e inolvidables.',
     contactTitle: 'Contacto',
     contactText: 'Para cualquier comisión o trabajo, por favor escribir a: '
   },
@@ -308,7 +745,7 @@ const texts = {
     clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ, Joia Magazine, Fort Magazine, featured work by Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México & others.',
     aboutTitle: 'About',
     aboutP1: 'Born in Santiago, Chile, Maximiliano Vásquez is a stylist, artist, and creative consultant who combines his background in advertising and creative management with a keen, almost instinctive aesthetic vision. After six years of working in communications and retail fashion, his approach to the market intersects the commercial and the conceptual, developing recognizable identities for his diverse client portfolio.',
-    aboutP2: 'His creative career is influenced by his love of big cities, cyberculture, a life as a music lover, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.',
+    aboutP2: 'His creative career is influenced by big cities & the cyberculture, a life as a music addict, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.',
     aboutP3: 'His personal work celebrates youth and ingenuity, rescues the uniqueness of the outsider and the sophistication of the underground, inviting us to challenge traditional clothing norms and creating fresh and unforgettable images.',
     contactTitle: 'Contact',
     contactText: 'For any commission or work, please write to: '
@@ -324,4 +761,32 @@ function updateTexts(lang){
   aboutParagraphs[1].textContent = texts[lang].aboutP2;
   aboutParagraphs[2].textContent = texts[lang].aboutP3;
   document.querySelector('.contact-info h2').textContent = texts[lang].contactTitle;
-  const contactP =
+  const contactP = document.querySelector('.contact-info p');
+  contactP.innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
+}
+
+toggle.addEventListener('click', () => {
+  const isEsActive = toggle.classList.contains('es-active');
+  if(isEsActive){
+    toggle.classList.remove('es-active');
+    toggle.classList.add('en-active');
+    updateTexts('en');
+  } else {
+    toggle.classList.remove('en-active');
+    toggle.classList.add('es-active');
+    updateTexts('es');
+  }
+});
+
+toggle.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter' || e.key === ' '){
+    e.preventDefault();
+    toggle.click();
+  }
+});
+
+// Inicializa en inglés
+updateTexts('en');
+</script>
+</body>
+</html>
