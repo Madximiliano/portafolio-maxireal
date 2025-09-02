@@ -66,7 +66,7 @@
     white-space: nowrap;
     text-align: left;
     flex-shrink: 0;
-    margin-left: 18px; /* ajustado un pelito menos */
+    margin-left: 18px;
     color: #ccc;
     text-decoration: none;
   }
@@ -209,7 +209,7 @@
     content: "";
     position: absolute;
     top: 3px;
-    left: 31px; /* EN activo por defecto */
+    left: 31px;
     width: 26px;
     height: 20px;
     background-color: #ccc;
@@ -274,7 +274,7 @@
   <div class="text-column box">
     <h2>About</h2>
     <p>Born in Santiago, Chile, Maximiliano Vásquez is a stylist, artist, and creative consultant who combines his background in advertising and creative management with a keen, almost instinctive aesthetic vision. After six years of working in communications and retail fashion, his approach to the market intersects the commercial and the conceptual, developing recognizable identities for his diverse client portfolio.</p>
-    <p>His creative career is influenced by the big cities & the cyberculture, a life as a music addict, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.</p>
+    <p>His creative career is influenced by his love of big cities, cyberculture, a life as a music lover, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.</p>
     <p>His personal work celebrates youth and ingenuity, rescues the uniqueness of the outsider and the sophistication of the underground, inviting us to challenge traditional clothing norms and creating fresh and unforgettable images.</p>
 
     <div class="contact-info">
@@ -298,8 +298,8 @@ const texts = {
     clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ, Joia Magazine, Fort Magazine, trabajos destacados por Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México, entre otros.',
     aboutTitle: 'Sobre mí',
     aboutP1: 'Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y casi instintiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque en el mercado intersecta lo comercial y lo conceptual, desarrollando identidades reconocibles para su variada cartera de clientes.',
-    aboutP2: 'Su carrera como creativo está influenciada por las grandes ciudades y la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.',
-    aboutP3: 'Su obra personal celebra la juventud y el ingenio, rescata la unicidad de lo outsider y la sofisticación del underground, invitando a desafiar las normas tradicionales del vestuario, creando imágenes frescas e inolvidables.',
+    aboutP2: 'Su carrera como creativo está influenciada por el amor a las grandes ciudades, la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.',
+    aboutP3: 'Su obra personal celebra la juventud y el ingenio, rescata la unicidad de lo outsider y la sofisticación de lo underground, invitando a desafiar las normas tradicionales del vestuario, creando imágenes frescas e inolvidables.',
     contactTitle: 'Contacto',
     contactText: 'Para cualquier comisión o trabajo, por favor escribir a: '
   },
@@ -308,7 +308,7 @@ const texts = {
     clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ, Joia Magazine, Fort Magazine, featured work by Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México & others.',
     aboutTitle: 'About',
     aboutP1: 'Born in Santiago, Chile, Maximiliano Vásquez is a stylist, artist, and creative consultant who combines his background in advertising and creative management with a keen, almost instinctive aesthetic vision. After six years of working in communications and retail fashion, his approach to the market intersects the commercial and the conceptual, developing recognizable identities for his diverse client portfolio.',
-    aboutP2: 'His creative career is influenced by big cities & the cyberculture, a life as a music addict, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.',
+    aboutP2: 'His creative career is influenced by his love of big cities, cyberculture, a life as a music lover, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.',
     aboutP3: 'His personal work celebrates youth and ingenuity, rescues the uniqueness of the outsider and the sophistication of the underground, inviting us to challenge traditional clothing norms and creating fresh and unforgettable images.',
     contactTitle: 'Contact',
     contactText: 'For any commission or work, please write to: '
@@ -324,32 +324,4 @@ function updateTexts(lang){
   aboutParagraphs[1].textContent = texts[lang].aboutP2;
   aboutParagraphs[2].textContent = texts[lang].aboutP3;
   document.querySelector('.contact-info h2').textContent = texts[lang].contactTitle;
-  const contactP = document.querySelector('.contact-info p');
-  contactP.innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
-}
-
-toggle.addEventListener('click', () => {
-  const isEsActive = toggle.classList.contains('es-active');
-  if(isEsActive){
-    toggle.classList.remove('es-active');
-    toggle.classList.add('en-active');
-    updateTexts('en');
-  } else {
-    toggle.classList.remove('en-active');
-    toggle.classList.add('es-active');
-    updateTexts('es');
-  }
-});
-
-toggle.addEventListener('keydown', (e) => {
-  if(e.key === 'Enter' || e.key === ' '){
-    e.preventDefault();
-    toggle.click();
-  }
-});
-
-// Inicializa en inglés
-updateTexts('en');
-</script>
-</body>
-</html>
+  const contactP =
