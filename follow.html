@@ -1,120 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio - Follow directo a IG</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Follow direct</title>
   <style>
-    /* ... tu CSS sin cambios ... */
-    /* Ejemplo mínimo para que se vea el menu */
-    #categories-bar { background: #000; color: #fff; padding: 12px; }
-    .top-bar { display:flex; justify-content:space-between; align-items:center; }
-    .buttons-container { display:flex; gap:12px; margin-top:8px; }
-    .buttons-container a { cursor:pointer; }
+    body { background:black; color:white; font-family:Arial, sans-serif; }
+    nav { display:flex; gap:20px; padding:20px; }
+    nav a { color:white; text-decoration:none; font-size:18px; }
+    nav a:hover { text-decoration:underline; }
   </style>
-
-  <!-- SCRIPT ROBUSTO (se ejecuta lo antes posible y captura eventos) -->
-  <script>
-  (function(){
-    const IG_URL = "https://www.instagram.com/madximiliano";
-    function doRedirect() {
-      // usar replace para que no quede "pantalla intermedia" en el historial
-      try { window.location.replace(IG_URL); } catch(e) { window.location.href = IG_URL; }
-    }
-
-    function handleEvent(e) {
-      try {
-        // sacar el elemento follow en el momento del evento
-        const follow = document.getElementById('followLink');
-        if (!follow) return; // si todavía no existe, salir
-
-        // 1) Si el click/tap viene desde dentro del enlace -> redirect
-        if (e.target && e.target.closest && e.target.closest('#followLink')) {
-          e.preventDefault(); e.stopImmediatePropagation();
-          doRedirect();
-          return;
-        }
-
-        // 2) Fallback por coordenadas: si el punto clickeado cae dentro del rect del enlace
-        // soporta touchstart/pointerdown/click
-        let x = 0, y = 0;
-        if (e.touches && e.touches[0]) { x = e.touches[0].clientX; y = e.touches[0].clientY; }
-        else { x = e.clientX || 0; y = e.clientY || 0; }
-
-        const rect = follow.getBoundingClientRect();
-        if (rect.width && rect.height && x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
-          e.preventDefault(); e.stopImmediatePropagation();
-          doRedirect();
-        }
-      } catch(err) {
-        // no romper todo si hay un error
-        console.error('Follow redirect handler error:', err);
-      }
-    }
-
-    // Usamos capture (true) para ejecutar antes que otros listeners.
-    document.addEventListener('pointerdown', handleEvent, true);
-    document.addEventListener('touchstart', handleEvent, true);
-    document.addEventListener('click', handleEvent, true);
-
-    // Por seguridad, si el usuario hace focus+enter en el link (teclado), también redirigimos
-    document.addEventListener('keydown', function(e){
-      try {
-        if (e.key === 'Enter') {
-          const active = document.activeElement;
-          if (active && active.id === 'followLink') {
-            e.preventDefault(); e.stopImmediatePropagation();
-            doRedirect();
-          }
-        }
-      } catch(err){}
-    }, true);
-
-  })();
-  </script>
 </head>
 <body>
-  <div id="categories-bar">
-    <div class="top-bar">
-      <div class="name-label">
-        <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
-      </div>
-      <button class="hamburger" id="hamburgerBtn">•</button>
-    </div>
-
-    <div class="buttons-container" id="mobileMenu">
-      <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">index</a>
-      <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Commercial</a>
-      <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Info</a>
-
-      <!-- LINK “FOLLOW” - tiene href normal + onclick fallback -->
-      <a
-        href="https://www.instagram.com/madximiliano"
-        id="followLink"
-        onclick="try{ window.location.replace('https://www.instagram.com/madximiliano'); }catch(e){ window.location.href='https://www.instagram.com/madximiliano'; } return false;"
-        style="color: #ffffff; text-decoration: none;"
-        >follow</a>
-    </div>
-  </div>
-
-  <div class="image-grid" aria-label="Galería de imágenes">
-    <!-- tus imágenes aquí sin cambios -->
-  </div>
-
-  <script>
-    // Tu script original del hamburger (sin cambios funcionales)
-    const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-    hamburgerBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("show");
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) {
-        mobileMenu.classList.remove("show");
-      }
-    });
-  </script>
+  <nav>
+    <a href="https://madximiliano.com">index</a>
+    <a href="https://madximiliano.com">Commercial</a>
+    <a href="https://madximiliano.com">Info</a>
+    <!-- Aquí está lo que quieres: -->
+    <a href="https://www.instagram.com/madximiliano">follow</a>
+  </nav>
 </body>
 </html>
