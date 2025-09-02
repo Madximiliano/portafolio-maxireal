@@ -6,17 +6,17 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/mi-favicon.png?v=1">
 <link rel="shortcut icon" href="/imagenes/mi-favicon.png?v=1">
 <link rel="apple-touch-icon" sizes="180x180" href="/imagenes/mi-favicon.png?v=1">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>mad</title>
-  <script>
-    let titles = ["mad", "Maximiliano Vásquez"];
-    let i = 0;
-    setInterval(() => {
-      document.title = titles[i % titles.length];
-      i++;
-    }, 2000);
-  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mad</title>
+<script>
+let titles = ["mad", "Maximiliano Vásquez"];
+let i = 0;
+setInterval(() => {
+  document.title = titles[i % titles.length];
+  i++;
+}, 2000);
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Special+Elite&display=swap" rel="stylesheet" />
 <style>
   @font-face {
@@ -26,7 +26,6 @@
     font-style: normal;
     font-display: swap;
   }
-
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; height: 100%; }
   body {
@@ -48,10 +47,7 @@
     position: relative;
   }
 
-  a,
-  #categories-bar .name-label,
-  #categories-bar button,
-  .contact-info a {
+  a, #categories-bar .name-label, #categories-bar button, .contact-info a {
     color: #ccc !important;
     text-decoration: none;
     font-family: 'NeueHaasDisplay', sans-serif !important;
@@ -73,7 +69,6 @@
   }
 
   #categories-bar .name-label {
-    font-family: 'NeueHaasDisplay', sans-serif !important;
     font-weight: 400;
     font-size: 1rem;
     white-space: nowrap;
@@ -84,7 +79,7 @@
     text-decoration: none;
   }
 
-  /* botones: desktop por defecto */
+  /* botones: desktop */
   #categories-bar .buttons-container {
     display: flex;
     gap: 24px;
@@ -102,7 +97,6 @@
     cursor: pointer;
     padding: 8px 16px;
     border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease;
     text-align: center;
     color: #ccc;
   }
@@ -118,7 +112,6 @@
   #categories-bar a {
     color: #ccc !important;
     text-decoration: none !important;
-    font-family: 'NeueHaasDisplay', sans-serif !important;
     font-weight: 400;
     font-size: 0.6rem;
     padding: 8px 16px;
@@ -152,131 +145,28 @@
     padding-top: 3rem;
     box-sizing: border-box;
   }
-  .text-column {
-    flex: 1;
-    max-width: 45%;
-  }
+  .text-column { flex: 1; max-width: 45%; }
 
   @media (max-width: 768px) {
-    .text-columns {
-      flex-direction: column;
-      gap: 1.5rem;
-      max-width: 90%;
-      padding-top: 5rem;
-    }
-    .text-column {
-      max-width: 100%;
-      font-size: 0.65rem;
-    }
-    .box p {
-      text-align: justify;
-    }
-    .box h1, .box h2 {
-      text-align: left;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
+    .text-columns { flex-direction: column; gap: 1.5rem; max-width: 90%; padding-top: 5rem; }
+    .text-column { max-width: 100%; font-size: 0.65rem; }
+    .box h1, .box h2 { text-align: left; font-size: 1rem; margin-bottom: 0.5rem; }
   }
 
-  #language-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1100;
-    display: flex;
-    width: 60px;
-    height: 26px;
-    border-radius: 20px;
-    border: 2px solid #666;
-    overflow: hidden;
-    cursor: pointer;
-    user-select: none;
-    font-family: 'NeueHaasDisplay', sans-serif;
-    font-weight: 600;
-    font-size: 0.7rem;
-    background: #000;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-    transition: box-shadow 0.3s ease;
-  }
-
-  #language-toggle:hover {
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-  }
-
-  #language-toggle > div {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    position: relative;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  #language-toggle .es, #language-toggle .en {
-    color: #666;
-    background-color: #111;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  #language-toggle::before {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 31px; /* EN activo por defecto */
-    width: 26px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 20px;
-    transition: left 0.3s ease;
-    z-index: 0;
-  }
-
-  #language-toggle.en-active .en {
-    background-color: #ccc;
-    color: #000;
-    z-index: 1;
-    position: relative;
-  }
-  #language-toggle.en-active .es {
-    background-color: #111;
-    color: #666;
-    z-index: 0;
-    position: relative;
-  }
-  #language-toggle.en-active::before {
-    left: 31px;
-    background-color: #ccc;
-  }
-
-  #language-toggle.es-active .es {
-    background-color: #ccc;
-    color: #000;
-    z-index: 1;
-    position: relative;
-  }
-  #language-toggle.es-active .en {
-    background-color: #111;
-    color: #666;
-    z-index: 0;
-    position: relative;
-  }
-  #language-toggle.es-active::before {
-    left: 3px;
-    background-color: #ccc;
-  }
+  #language-toggle { position: fixed; bottom: 20px; right: 20px; z-index: 1100; display: flex; width: 60px; height: 26px; border-radius: 20px; border: 2px solid #666; overflow: hidden; cursor: pointer; user-select: none; font-weight: 600; font-size: 0.7rem; background: #000; box-shadow: 0 4px 8px rgba(0,0,0,0.12); }
+  #language-toggle:hover { box-shadow: 0 6px 14px rgba(0,0,0,0.2); }
+  #language-toggle > div { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+  #language-toggle .es, #language-toggle .en { color: #666; background-color: #111; }
 
   /* -------------------------
-     Mobile menu specific
-     (copiado/ajustado desde index.html)
+     Mobile menu styling
      ------------------------*/
   @media (max-width:768px) {
     #categories-bar { flex-direction: row; align-items:center; padding:12px 16px; height:auto; gap:8px; }
-    /* ocultar por defecto en mobile y convertir en overlay vertical */
-    #categories-bar .buttons-container { display:none; flex-direction:column; background-color: transparent; width:100%; position:absolute; top:40px; right:0; padding:10px 0; z-index:1000; margin-right:0; }
+    .hamburger { display:block !important; width:20px; height:20px; border-radius:50%; background:#ccc; border:none; cursor:pointer; position:relative; z-index:1100; }
+    #categories-bar .buttons-container { display:none; flex-direction:column; background: rgba(255,255,255,0.05); backdrop-filter: blur(5px); width:80%; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); padding:20px; gap:15px; border-radius:10px; align-items:center; z-index:1050; }
     #categories-bar .buttons-container.show { display:flex !important; }
-    .hamburger { display:block !important; font-size:1.6rem; background:transparent; color:#ccc; border:none; cursor:pointer; z-index:1100; padding:6px 8px; }
-    #categories-bar .buttons-container button { width:100%; text-align:left; padding-left:24px; }
+    #categories-bar .buttons-container button { width:16px; height:16px; border-radius:50%; background:#ccc; border:none; padding:0; margin:5px 0; }
   }
   @media (min-width:769px) {
     .hamburger { display:none !important; }
@@ -288,16 +178,12 @@
 
 <div id="categories-bar">
   <a href="index.html" class="name-label">Maximiliano Vásquez</a>
-
-  <!-- HAMBURGER: visible en mobile -->
-  <button class="hamburger" id="hamburgerBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú">☰</button>
-
-  <!-- botones: ahora con id para que el script los controle -->
+  <button class="hamburger" id="hamburgerBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú"></button>
   <div class="buttons-container" id="mobileMenu">
-    <button><a href="index.html" style="color: #ccc; text-decoration: none;">index</a></button>
-    <button><a href="commercial.html" style="color: #ccc; text-decoration: none;">Commercial</a></button>
-    <button class="active" aria-current="true">Info</button>
-    <button><a href="https://www.instagram.com/madximiliano" target="_blank" style="color: #ccc; text-decoration: none;">follow</a></button>
+    <button title="index"></button>
+    <button title="Commercial"></button>
+    <button class="active" title="Info"></button>
+    <button title="follow"></button>
   </div>
 </div>
 
@@ -326,98 +212,66 @@
 </div>
 
 <script>
-  // language toggle (sin cambios funcionales)
-  const toggle = document.getElementById('language-toggle');
-
-  const texts = {
-    es: {
-      clientsTitle: 'Clientes Seleccionados',
-      clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ, Joia Magazine, Fort Magazine, trabajos destacados por Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México, entre otros.',
-      aboutTitle: 'Sobre mí',
-      aboutP1: 'Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y casi instintiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque en el mercado intersecta lo comercial y lo conceptual, desarrollando identidades reconocibles para su variada cartera de clientes.',
-      aboutP2: 'Su carrera como creativo está influenciada por las grandes ciudades y la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.',
-      aboutP3: 'Su obra personal celebra la juventud y el ingenio, rescata la unicidad de lo outsider y la sofisticación del underground, invitando a desafiar las normas tradicionales del vestuario, creando imágenes frescas e inolvidables.',
-      contactTitle: 'Contacto',
-      contactText: 'Para cualquier comisión o trabajo, por favor escribir a: '
-    },
-    en: {
-      clientsTitle: 'Selected Clients',
-      clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ, Joia Magazine, Fort Magazine, featured work by Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México & others.',
-      aboutTitle: 'About',
-      aboutP1: 'Born in Santiago, Chile, Maximiliano Vásquez is a stylist, artist, and creative consultant who combines his background in advertising and creative management with a keen, almost instinctive aesthetic vision. After six years of working in communications and retail fashion, his approach to the market intersects the commercial and the conceptual, developing recognizable identities for his diverse client portfolio.',
-      aboutP2: 'His creative career is influenced by big cities & the cyberculture, a life as a music addict, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.',
-      aboutP3: 'His personal work celebrates youth and ingenuity, rescues the uniqueness of the outsider and the sophistication of the underground, inviting us to challenge traditional clothing norms and creating fresh and unforgettable images.',
-      contactTitle: 'Contact',
-      contactText: 'For any commission or work, please write to: '
-    }
-  };
-
-  function updateTexts(lang){
-    document.querySelector('.text-column.box:nth-of-type(1) h1').textContent = texts[lang].clientsTitle;
-    document.querySelector('.text-column.box:nth-of-type(1) p').textContent = texts[lang].clientsText;
-    document.querySelector('.text-column.box:nth-of-type(2) h2').textContent = texts[lang].aboutTitle;
-    const aboutParagraphs = document.querySelectorAll('.text-column.box:nth-of-type(2) p');
-    aboutParagraphs[0].textContent = texts[lang].aboutP1;
-    aboutParagraphs[1].textContent = texts[lang].aboutP2;
-    aboutParagraphs[2].textContent = texts[lang].aboutP3;
-    document.querySelector('.contact-info h2').textContent = texts[lang].contactTitle;
-    const contactP = document.querySelector('.contact-info p');
-    contactP.innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
+const toggle = document.getElementById('language-toggle');
+const texts = {
+  es: {
+    clientsTitle: 'Clientes Seleccionados',
+    clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ, Joia Magazine, Fort Magazine, trabajos destacados por Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México, entre otros.',
+    aboutTitle: 'Sobre mí',
+    aboutP1: 'Nacido en Santiago de Chile, Maximiliano Vásquez es un estilista, artista y consultor creativo que combina su formación en publicidad y gestión creativa con una visión estética aguda y casi instintiva. Tras seis años de dirección en comunicación y moda en retail, su enfoque en el mercado intersecta lo comercial y lo conceptual, desarrollando identidades reconocibles para su variada cartera de clientes.',
+    aboutP2: 'Su carrera como creativo está influenciada por las grandes ciudades y la cibercultura, una vida melómana y la capacidad de llevar los sonidos a imágenes, desarrollando investigaciones profundas, storytellings que reinterpretan símbolos con precisión y propuestas avant-garde.',
+    aboutP3: 'Su obra personal celebra la juventud y el ingenio, rescata la unicidad de lo outsider y la sofisticación del underground, invitando a desafiar las normas tradicionales del vestuario, creando imágenes frescas e inolvidables.',
+    contactTitle: 'Contacto',
+    contactText: 'Para cualquier comisión o trabajo, por favor escribir a: '
+  },
+  en: {
+    clientsTitle: 'Selected Clients',
+    clientsText: 'Nike, Puma, Umbro, Fila, Hoka, New Era, Bold, Ellesse, Monarch, GAM, Pedritos Wear, Dos Lobos, Tommy Hilfiger, AdDI, Neit Whiskey, Joia Market, Melt Pizzas, Paris, Drops, Mercado Libre, Sony Music, More Amor, Partes by Lupe Gajardo, Munay Sisters, Radelica, Paloma Mami, Isabella Lovestory, Soulfia, Condy, EQ, Joia Magazine, Fort Magazine, featured work by Paper Magazine, Hypebeast, Hypebeast Latam, Vogue México & others.',
+    aboutTitle: 'About',
+    aboutP1: 'Born in Santiago, Chile, Maximiliano Vásquez is a stylist, artist, and creative consultant who combines his background in advertising and creative management with a keen, almost instinctive aesthetic vision. After six years of working in communications and retail fashion, his approach to the market intersects the commercial and the conceptual, developing recognizable identities for his diverse client portfolio.',
+    aboutP2: 'His creative career is influenced by big cities & the cyberculture, a life as a music addict, and the ability to translate sounds into images, developing in-depth research, storytelling that reinterprets symbols with precision, and avant-garde proposals.',
+    aboutP3: 'His personal work celebrates youth and ingenuity, rescues the uniqueness of the outsider and the sophistication of the underground, inviting us to challenge traditional clothing norms and creating fresh and unforgettable images.',
+    contactTitle: 'Contact',
+    contactText: 'For any commission or work, please write to: '
   }
+};
+function updateTexts(lang){
+  document.querySelector('.text-column.box:nth-of-type(1) h1').textContent = texts[lang].clientsTitle;
+  document.querySelector('.text-column.box:nth-of-type(1) p').textContent = texts[lang].clientsText;
+  document.querySelector('.text-column.box:nth-of-type(2) h2').textContent = texts[lang].aboutTitle;
+  const aboutParagraphs = document.querySelectorAll('.text-column.box:nth-of-type(2) p');
+  aboutParagraphs[0].textContent = texts[lang].aboutP1;
+  aboutParagraphs[1].textContent = texts[lang].aboutP2;
+  aboutParagraphs[2].textContent = texts[lang].aboutP3;
+  document.querySelector('.contact-info h2').textContent = texts[lang].contactTitle;
+  const contactP = document.querySelector('.contact-info p');
+  contactP.innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
+}
+toggle.addEventListener('click', () => {
+  const isEsActive = toggle.classList.contains('es-active');
+  if(isEsActive){ toggle.classList.remove('es-active'); toggle.classList.add('en-active'); updateTexts('en'); } 
+  else { toggle.classList.remove('en-active'); toggle.classList.add('es-active'); updateTexts('es'); }
+});
+toggle.addEventListener('keydown', (e) => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle.click(); } });
+updateTexts('en');
 
-  toggle.addEventListener('click', () => {
-    const isEsActive = toggle.classList.contains('es-active');
-    if(isEsActive){
-      toggle.classList.remove('es-active');
-      toggle.classList.add('en-active');
-      updateTexts('en');
-    } else {
-      toggle.classList.remove('en-active');
-      toggle.classList.add('es-active');
-      updateTexts('es');
+// SCRIPT HAMBURGER
+(function(){
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if(!hamburgerBtn || !mobileMenu) return;
+  hamburgerBtn.addEventListener("click", () => {
+    const isShown = mobileMenu.classList.toggle("show");
+    hamburgerBtn.setAttribute("aria-expanded", isShown ? "true" : "false");
+  });
+  window.addEventListener("resize", () => {
+    if(window.innerWidth > 768) {
+      mobileMenu.classList.remove("show");
+      hamburgerBtn.setAttribute("aria-expanded","false");
     }
   });
-
-  toggle.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      toggle.click();
-    }
-  });
-
-  // inicializa
-  updateTexts('en');
-</script>
-
-<!-- SCRIPT DEL HAMBURGER -->
-<script>
-  (function(){
-    const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    if(!hamburgerBtn || !mobileMenu) return;
-
-    hamburgerBtn.addEventListener("click", () => {
-      const isShown = mobileMenu.classList.toggle("show");
-      hamburgerBtn.setAttribute("aria-expanded", isShown ? "true" : "false");
-    });
-
-    // cerrar menú si se agranda la ventana
-    window.addEventListener("resize", () => {
-      if(window.innerWidth > 768) {
-        mobileMenu.classList.remove("show");
-        hamburgerBtn.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // accesibilidad: abrir con Enter/Espacio
-    hamburgerBtn.addEventListener("keydown", (e) => {
-      if(e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        hamburgerBtn.click();
-      }
-    });
-  })();
+  hamburgerBtn.addEventListener("keydown",(e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); hamburgerBtn.click(); } });
+})();
 </script>
 
 </body>
