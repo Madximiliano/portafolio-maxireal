@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Información - Maximiliano Vásquez</title>
+  <title>Portafolio - Sin espacio con cursor personalizado</title>
   <!-- Fuente Montserrat y Special Elite -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet" />
-  <style>
-    /* ... tu CSS sin cambios ... */
-  </style>
+<style>
+  /* ... tu CSS sin cambios ... */
+</style>
+
 </head>
 <body>
-  <div id="categories-bar">
-    <a href="index2.html" class="name-label">Maximiliano Vásquez</a>
-    <div class="buttons-container">
-      <button class="active" aria-current="true">Work</button>
-      <button>Commercial</button>
-      <button><a href="info.html" style="color: #000; text-decoration: none;">Info</a></button>
-      <button><a href="contact.html" style="color: #000; text-decoration: none;">Contact</a></button>
+<div id="categories-bar">
+  <div class="top-bar">
+    <div class="name-label">
+      <a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Maximiliano Vásquez</a>
     </div>
+   <button class="hamburger" id="hamburgerBtn">•</button>
   </div>
 
-  <div id="language-toggle" role="button" aria-label="Cambiar idioma" tabindex="0" class="es-active">
-    <div class="es">ES</div>
-    <div class="en">EN</div>
+  <div class="buttons-container" id="mobileMenu">
+    <button><a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">index</a></button>
+    <button><a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Commercial</a></button>
+    <button><a href="https://madximiliano.com" style="color: #ffffff; text-decoration: none;">Info</a></button>
+    <button><a href="https://www.instagram.com/madximiliano" target="_blank" rel="noopener" style="color: #ffffff; text-decoration: none;">follow</a></button>
+  </div>
+</div>
+
+  <div class="image-grid" aria-label="Galería de imágenes">
+    <!-- tus imágenes aquí sin cambios -->
   </div>
 
-  <div class="content">
-    <!-- contenido de la página -->
-  </div>
+<script>
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-  <script async src="//www.instagram.com/embed.js"></script>
+  hamburgerBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
 
-  <script>
-    // Tu código de toggle idioma aquí...
+  // Oculta menú si cambia a escritorio
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      mobileMenu.classList.remove("show");
+    }
+  });
 
-    // Redirigir a Instagram al hacer clic en cualquier parte de la página
-    document.body.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.location.href = 'https://www.instagram.com/madximiliano';
-    });
-  </script>
+  // Elimina el script que interceptaba clics en el body para no bloquear enlaces
+  // document.body.addEventListener('click', function(e) {
+  //   e.preventDefault();
+  //   window.location.href = 'https://madximiliano.com';
+  // });
+</script>
 </body>
 </html>
