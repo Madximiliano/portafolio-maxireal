@@ -322,6 +322,7 @@ function updateTexts(lang){
   const aboutParagraphs = document.querySelectorAll('.text-column.box:nth-of-type(2) p');
   aboutParagraphs[0].textContent = texts[lang].aboutP1;
   aboutParagraphs[1].textContent = texts[lang].aboutP2;
+  aboutParagraphs[2].textContent = texts[lang].aboutP3;
   document.querySelector('.contact-info h2').textContent = texts[lang].contactTitle;
   const contactP = document.querySelector('.contact-info p');
   contactP.innerHTML = texts[lang].contactText + '<a href="mailto:maxi.vasquez.rz@gmail.com">maxi.vasquez.rz@gmail.com</a>';
