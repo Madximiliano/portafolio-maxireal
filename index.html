@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio - Sin espacio con cursor personalizado</title>
+  <title>mad</title>
+  <script>
+  let titles = ["mad", "maximiliano vasquez"];
+  let i = 0;
+  setInterval(() => {
+    document.title = titles[i % titles.length];
+    i++;
+  }, 2000);
+</script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet" />
   <style>
     @font-face {
